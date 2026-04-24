@@ -1,0 +1,398 @@
+
+######## STAGE2 ROUND 1 ########
+
+------------------------------------------------------------------------------------------------------------------------
+round=1 target=127.0.0.1:8381 real_label=native_aead_like probe=connect_only
+connected=True connect_latency_ms=3.17 roundtrip_ms=None sent_len=None recv_len=None recv_error=None shutdown_wr_after_send=None
+recv_preview_hex=None recv_preview_ascii=None
+------------------------------------------------------------------------------------------------------------------------
+round=1 target=127.0.0.1:8381 real_label=native_aead_like probe=random_1_byte
+connected=True connect_latency_ms=0.32 roundtrip_ms=3104.08 sent_len=1 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=1 target=127.0.0.1:8381 real_label=native_aead_like probe=random_8_bytes
+connected=True connect_latency_ms=0.42 roundtrip_ms=3104.38 sent_len=8 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=1 target=127.0.0.1:8381 real_label=native_aead_like probe=random_64_bytes
+connected=True connect_latency_ms=0.33 roundtrip_ms=3104.28 sent_len=64 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=1 target=127.0.0.1:8381 real_label=native_aead_like probe=split_random_32
+connected=True connect_latency_ms=0.36 roundtrip_ms=3305.37 sent_len=32 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=1 target=127.0.0.1:8381 real_label=native_aead_like probe=random_32_then_shutdown_wr
+connected=True connect_latency_ms=0.18 roundtrip_ms=101.13 sent_len=32 recv_len=0 recv_error=peer_closed shutdown_wr_after_send=True
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=1 target=127.0.0.1:8389 real_label=native_aead_like probe=connect_only
+connected=True connect_latency_ms=0.4 roundtrip_ms=None sent_len=None recv_len=None recv_error=None shutdown_wr_after_send=None
+recv_preview_hex=None recv_preview_ascii=None
+------------------------------------------------------------------------------------------------------------------------
+round=1 target=127.0.0.1:8389 real_label=native_aead_like probe=random_1_byte
+connected=True connect_latency_ms=0.39 roundtrip_ms=3104.6 sent_len=1 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=1 target=127.0.0.1:8389 real_label=native_aead_like probe=random_8_bytes
+connected=True connect_latency_ms=0.84 roundtrip_ms=3103.7 sent_len=8 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=1 target=127.0.0.1:8389 real_label=native_aead_like probe=random_64_bytes
+connected=True connect_latency_ms=0.22 roundtrip_ms=3104.21 sent_len=64 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=1 target=127.0.0.1:8389 real_label=native_aead_like probe=split_random_32
+connected=True connect_latency_ms=1.01 roundtrip_ms=3305.78 sent_len=32 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=1 target=127.0.0.1:8389 real_label=native_aead_like probe=random_32_then_shutdown_wr
+connected=True connect_latency_ms=0.29 roundtrip_ms=101.18 sent_len=32 recv_len=0 recv_error=peer_closed shutdown_wr_after_send=True
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=1 target=127.0.0.1:8390 real_label=outline_like probe=connect_only
+connected=True connect_latency_ms=0.45 roundtrip_ms=None sent_len=None recv_len=None recv_error=None shutdown_wr_after_send=None
+recv_preview_hex=None recv_preview_ascii=None
+------------------------------------------------------------------------------------------------------------------------
+round=1 target=127.0.0.1:8390 real_label=outline_like probe=random_1_byte
+connected=True connect_latency_ms=0.12 roundtrip_ms=3104.17 sent_len=1 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=1 target=127.0.0.1:8390 real_label=outline_like probe=random_8_bytes
+connected=True connect_latency_ms=0.34 roundtrip_ms=3104.56 sent_len=8 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=1 target=127.0.0.1:8390 real_label=outline_like probe=random_64_bytes
+connected=True connect_latency_ms=0.43 roundtrip_ms=3105.42 sent_len=64 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=1 target=127.0.0.1:8390 real_label=outline_like probe=split_random_32
+connected=True connect_latency_ms=0.18 roundtrip_ms=3304.9 sent_len=32 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=1 target=127.0.0.1:8390 real_label=outline_like probe=random_32_then_shutdown_wr
+connected=True connect_latency_ms=0.3 roundtrip_ms=100.96 sent_len=32 recv_len=0 recv_error=peer_closed shutdown_wr_after_send=True
+recv_preview_hex= recv_preview_ascii=
+
+######## STAGE2 ROUND 2 ########
+
+------------------------------------------------------------------------------------------------------------------------
+round=2 target=127.0.0.1:8381 real_label=native_aead_like probe=connect_only
+connected=True connect_latency_ms=0.29 roundtrip_ms=None sent_len=None recv_len=None recv_error=None shutdown_wr_after_send=None
+recv_preview_hex=None recv_preview_ascii=None
+------------------------------------------------------------------------------------------------------------------------
+round=2 target=127.0.0.1:8381 real_label=native_aead_like probe=random_1_byte
+connected=True connect_latency_ms=0.13 roundtrip_ms=3104.15 sent_len=1 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=2 target=127.0.0.1:8381 real_label=native_aead_like probe=random_8_bytes
+connected=True connect_latency_ms=0.22 roundtrip_ms=3104.3 sent_len=8 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=2 target=127.0.0.1:8381 real_label=native_aead_like probe=random_64_bytes
+connected=True connect_latency_ms=0.16 roundtrip_ms=3104.6 sent_len=64 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=2 target=127.0.0.1:8381 real_label=native_aead_like probe=split_random_32
+connected=True connect_latency_ms=0.2 roundtrip_ms=3304.22 sent_len=32 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=2 target=127.0.0.1:8381 real_label=native_aead_like probe=random_32_then_shutdown_wr
+connected=True connect_latency_ms=0.18 roundtrip_ms=100.87 sent_len=32 recv_len=0 recv_error=peer_closed shutdown_wr_after_send=True
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=2 target=127.0.0.1:8389 real_label=native_aead_like probe=connect_only
+connected=True connect_latency_ms=0.51 roundtrip_ms=None sent_len=None recv_len=None recv_error=None shutdown_wr_after_send=None
+recv_preview_hex=None recv_preview_ascii=None
+------------------------------------------------------------------------------------------------------------------------
+round=2 target=127.0.0.1:8389 real_label=native_aead_like probe=random_1_byte
+connected=True connect_latency_ms=0.09 roundtrip_ms=3104.43 sent_len=1 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=2 target=127.0.0.1:8389 real_label=native_aead_like probe=random_8_bytes
+connected=True connect_latency_ms=0.13 roundtrip_ms=3103.94 sent_len=8 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=2 target=127.0.0.1:8389 real_label=native_aead_like probe=random_64_bytes
+connected=True connect_latency_ms=0.76 roundtrip_ms=3103.89 sent_len=64 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=2 target=127.0.0.1:8389 real_label=native_aead_like probe=split_random_32
+connected=True connect_latency_ms=0.59 roundtrip_ms=3305.08 sent_len=32 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=2 target=127.0.0.1:8389 real_label=native_aead_like probe=random_32_then_shutdown_wr
+connected=True connect_latency_ms=0.54 roundtrip_ms=101.34 sent_len=32 recv_len=0 recv_error=peer_closed shutdown_wr_after_send=True
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=2 target=127.0.0.1:8390 real_label=outline_like probe=connect_only
+connected=True connect_latency_ms=0.39 roundtrip_ms=None sent_len=None recv_len=None recv_error=None shutdown_wr_after_send=None
+recv_preview_hex=None recv_preview_ascii=None
+------------------------------------------------------------------------------------------------------------------------
+round=2 target=127.0.0.1:8390 real_label=outline_like probe=random_1_byte
+connected=True connect_latency_ms=0.07 roundtrip_ms=3103.89 sent_len=1 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=2 target=127.0.0.1:8390 real_label=outline_like probe=random_8_bytes
+connected=True connect_latency_ms=0.71 roundtrip_ms=3104.37 sent_len=8 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=2 target=127.0.0.1:8390 real_label=outline_like probe=random_64_bytes
+connected=True connect_latency_ms=0.22 roundtrip_ms=3104.04 sent_len=64 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=2 target=127.0.0.1:8390 real_label=outline_like probe=split_random_32
+connected=True connect_latency_ms=0.26 roundtrip_ms=3303.08 sent_len=32 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=2 target=127.0.0.1:8390 real_label=outline_like probe=random_32_then_shutdown_wr
+connected=True connect_latency_ms=0.17 roundtrip_ms=100.49 sent_len=32 recv_len=0 recv_error=peer_closed shutdown_wr_after_send=True
+recv_preview_hex= recv_preview_ascii=
+
+######## STAGE2 ROUND 3 ########
+
+------------------------------------------------------------------------------------------------------------------------
+round=3 target=127.0.0.1:8381 real_label=native_aead_like probe=connect_only
+connected=True connect_latency_ms=0.23 roundtrip_ms=None sent_len=None recv_len=None recv_error=None shutdown_wr_after_send=None
+recv_preview_hex=None recv_preview_ascii=None
+------------------------------------------------------------------------------------------------------------------------
+round=3 target=127.0.0.1:8381 real_label=native_aead_like probe=random_1_byte
+connected=True connect_latency_ms=0.07 roundtrip_ms=3104.17 sent_len=1 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=3 target=127.0.0.1:8381 real_label=native_aead_like probe=random_8_bytes
+connected=True connect_latency_ms=0.19 roundtrip_ms=3104.1 sent_len=8 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=3 target=127.0.0.1:8381 real_label=native_aead_like probe=random_64_bytes
+connected=True connect_latency_ms=0.11 roundtrip_ms=3104.27 sent_len=64 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=3 target=127.0.0.1:8381 real_label=native_aead_like probe=split_random_32
+connected=True connect_latency_ms=0.16 roundtrip_ms=3305.24 sent_len=32 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=3 target=127.0.0.1:8381 real_label=native_aead_like probe=random_32_then_shutdown_wr
+connected=True connect_latency_ms=0.14 roundtrip_ms=100.84 sent_len=32 recv_len=0 recv_error=peer_closed shutdown_wr_after_send=True
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=3 target=127.0.0.1:8389 real_label=native_aead_like probe=connect_only
+connected=True connect_latency_ms=0.6 roundtrip_ms=None sent_len=None recv_len=None recv_error=None shutdown_wr_after_send=None
+recv_preview_hex=None recv_preview_ascii=None
+------------------------------------------------------------------------------------------------------------------------
+round=3 target=127.0.0.1:8389 real_label=native_aead_like probe=random_1_byte
+connected=True connect_latency_ms=0.04 roundtrip_ms=3104.6 sent_len=1 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=3 target=127.0.0.1:8389 real_label=native_aead_like probe=random_8_bytes
+connected=True connect_latency_ms=0.11 roundtrip_ms=3104.42 sent_len=8 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=3 target=127.0.0.1:8389 real_label=native_aead_like probe=random_64_bytes
+connected=True connect_latency_ms=0.21 roundtrip_ms=3103.89 sent_len=64 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=3 target=127.0.0.1:8389 real_label=native_aead_like probe=split_random_32
+connected=True connect_latency_ms=0.17 roundtrip_ms=3304.98 sent_len=32 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=3 target=127.0.0.1:8389 real_label=native_aead_like probe=random_32_then_shutdown_wr
+connected=True connect_latency_ms=0.16 roundtrip_ms=100.79 sent_len=32 recv_len=0 recv_error=peer_closed shutdown_wr_after_send=True
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=3 target=127.0.0.1:8390 real_label=outline_like probe=connect_only
+connected=True connect_latency_ms=0.26 roundtrip_ms=None sent_len=None recv_len=None recv_error=None shutdown_wr_after_send=None
+recv_preview_hex=None recv_preview_ascii=None
+------------------------------------------------------------------------------------------------------------------------
+round=3 target=127.0.0.1:8390 real_label=outline_like probe=random_1_byte
+connected=True connect_latency_ms=0.11 roundtrip_ms=3104.44 sent_len=1 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=3 target=127.0.0.1:8390 real_label=outline_like probe=random_8_bytes
+connected=True connect_latency_ms=0.22 roundtrip_ms=3104.18 sent_len=8 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=3 target=127.0.0.1:8390 real_label=outline_like probe=random_64_bytes
+connected=True connect_latency_ms=0.21 roundtrip_ms=3103.95 sent_len=64 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=3 target=127.0.0.1:8390 real_label=outline_like probe=split_random_32
+connected=True connect_latency_ms=0.2 roundtrip_ms=3304.93 sent_len=32 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=3 target=127.0.0.1:8390 real_label=outline_like probe=random_32_then_shutdown_wr
+connected=True connect_latency_ms=0.31 roundtrip_ms=101.31 sent_len=32 recv_len=0 recv_error=peer_closed shutdown_wr_after_send=True
+recv_preview_hex= recv_preview_ascii=
+
+######## STAGE2 ROUND 4 ########
+
+------------------------------------------------------------------------------------------------------------------------
+round=4 target=127.0.0.1:8381 real_label=native_aead_like probe=connect_only
+connected=True connect_latency_ms=0.59 roundtrip_ms=None sent_len=None recv_len=None recv_error=None shutdown_wr_after_send=None
+recv_preview_hex=None recv_preview_ascii=None
+------------------------------------------------------------------------------------------------------------------------
+round=4 target=127.0.0.1:8381 real_label=native_aead_like probe=random_1_byte
+connected=True connect_latency_ms=0.04 roundtrip_ms=3104.31 sent_len=1 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=4 target=127.0.0.1:8381 real_label=native_aead_like probe=random_8_bytes
+connected=True connect_latency_ms=0.28 roundtrip_ms=3104.14 sent_len=8 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=4 target=127.0.0.1:8381 real_label=native_aead_like probe=random_64_bytes
+connected=True connect_latency_ms=0.25 roundtrip_ms=3101.6 sent_len=64 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=4 target=127.0.0.1:8381 real_label=native_aead_like probe=split_random_32
+connected=True connect_latency_ms=0.23 roundtrip_ms=3305.48 sent_len=32 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=4 target=127.0.0.1:8381 real_label=native_aead_like probe=random_32_then_shutdown_wr
+connected=True connect_latency_ms=0.28 roundtrip_ms=100.81 sent_len=32 recv_len=0 recv_error=peer_closed shutdown_wr_after_send=True
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=4 target=127.0.0.1:8389 real_label=native_aead_like probe=connect_only
+connected=True connect_latency_ms=0.18 roundtrip_ms=None sent_len=None recv_len=None recv_error=None shutdown_wr_after_send=None
+recv_preview_hex=None recv_preview_ascii=None
+------------------------------------------------------------------------------------------------------------------------
+round=4 target=127.0.0.1:8389 real_label=native_aead_like probe=random_1_byte
+connected=True connect_latency_ms=0.03 roundtrip_ms=3103.54 sent_len=1 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=4 target=127.0.0.1:8389 real_label=native_aead_like probe=random_8_bytes
+connected=True connect_latency_ms=0.17 roundtrip_ms=3104.03 sent_len=8 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=4 target=127.0.0.1:8389 real_label=native_aead_like probe=random_64_bytes
+connected=True connect_latency_ms=0.11 roundtrip_ms=3104.18 sent_len=64 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=4 target=127.0.0.1:8389 real_label=native_aead_like probe=split_random_32
+connected=True connect_latency_ms=0.11 roundtrip_ms=3304.82 sent_len=32 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=4 target=127.0.0.1:8389 real_label=native_aead_like probe=random_32_then_shutdown_wr
+connected=True connect_latency_ms=0.19 roundtrip_ms=100.8 sent_len=32 recv_len=0 recv_error=peer_closed shutdown_wr_after_send=True
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=4 target=127.0.0.1:8390 real_label=outline_like probe=connect_only
+connected=True connect_latency_ms=0.2 roundtrip_ms=None sent_len=None recv_len=None recv_error=None shutdown_wr_after_send=None
+recv_preview_hex=None recv_preview_ascii=None
+------------------------------------------------------------------------------------------------------------------------
+round=4 target=127.0.0.1:8390 real_label=outline_like probe=random_1_byte
+connected=True connect_latency_ms=0.1 roundtrip_ms=3104.06 sent_len=1 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=4 target=127.0.0.1:8390 real_label=outline_like probe=random_8_bytes
+connected=True connect_latency_ms=0.43 roundtrip_ms=3104.6 sent_len=8 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=4 target=127.0.0.1:8390 real_label=outline_like probe=random_64_bytes
+connected=True connect_latency_ms=0.28 roundtrip_ms=3103.98 sent_len=64 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=4 target=127.0.0.1:8390 real_label=outline_like probe=split_random_32
+connected=True connect_latency_ms=0.11 roundtrip_ms=3304.08 sent_len=32 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=4 target=127.0.0.1:8390 real_label=outline_like probe=random_32_then_shutdown_wr
+connected=True connect_latency_ms=0.18 roundtrip_ms=100.64 sent_len=32 recv_len=0 recv_error=peer_closed shutdown_wr_after_send=True
+recv_preview_hex= recv_preview_ascii=
+
+######## STAGE2 ROUND 5 ########
+
+------------------------------------------------------------------------------------------------------------------------
+round=5 target=127.0.0.1:8381 real_label=native_aead_like probe=connect_only
+connected=True connect_latency_ms=0.16 roundtrip_ms=None sent_len=None recv_len=None recv_error=None shutdown_wr_after_send=None
+recv_preview_hex=None recv_preview_ascii=None
+------------------------------------------------------------------------------------------------------------------------
+round=5 target=127.0.0.1:8381 real_label=native_aead_like probe=random_1_byte
+connected=True connect_latency_ms=0.03 roundtrip_ms=3103.68 sent_len=1 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=5 target=127.0.0.1:8381 real_label=native_aead_like probe=random_8_bytes
+connected=True connect_latency_ms=0.09 roundtrip_ms=3104.03 sent_len=8 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=5 target=127.0.0.1:8381 real_label=native_aead_like probe=random_64_bytes
+connected=True connect_latency_ms=0.23 roundtrip_ms=3104.6 sent_len=64 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=5 target=127.0.0.1:8381 real_label=native_aead_like probe=split_random_32
+connected=True connect_latency_ms=0.1 roundtrip_ms=3305.53 sent_len=32 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=5 target=127.0.0.1:8381 real_label=native_aead_like probe=random_32_then_shutdown_wr
+connected=True connect_latency_ms=0.15 roundtrip_ms=100.46 sent_len=32 recv_len=0 recv_error=peer_closed shutdown_wr_after_send=True
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=5 target=127.0.0.1:8389 real_label=native_aead_like probe=connect_only
+connected=True connect_latency_ms=0.51 roundtrip_ms=None sent_len=None recv_len=None recv_error=None shutdown_wr_after_send=None
+recv_preview_hex=None recv_preview_ascii=None
+------------------------------------------------------------------------------------------------------------------------
+round=5 target=127.0.0.1:8389 real_label=native_aead_like probe=random_1_byte
+connected=True connect_latency_ms=0.04 roundtrip_ms=3104.08 sent_len=1 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=5 target=127.0.0.1:8389 real_label=native_aead_like probe=random_8_bytes
+connected=True connect_latency_ms=0.15 roundtrip_ms=3104.05 sent_len=8 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=5 target=127.0.0.1:8389 real_label=native_aead_like probe=random_64_bytes
+connected=True connect_latency_ms=0.21 roundtrip_ms=3104.15 sent_len=64 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=5 target=127.0.0.1:8389 real_label=native_aead_like probe=split_random_32
+connected=True connect_latency_ms=0.16 roundtrip_ms=3305.1 sent_len=32 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=5 target=127.0.0.1:8389 real_label=native_aead_like probe=random_32_then_shutdown_wr
+connected=True connect_latency_ms=0.48 roundtrip_ms=101.25 sent_len=32 recv_len=0 recv_error=peer_closed shutdown_wr_after_send=True
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=5 target=127.0.0.1:8390 real_label=outline_like probe=connect_only
+connected=True connect_latency_ms=0.24 roundtrip_ms=None sent_len=None recv_len=None recv_error=None shutdown_wr_after_send=None
+recv_preview_hex=None recv_preview_ascii=None
+------------------------------------------------------------------------------------------------------------------------
+round=5 target=127.0.0.1:8390 real_label=outline_like probe=random_1_byte
+connected=True connect_latency_ms=0.03 roundtrip_ms=3103.07 sent_len=1 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=5 target=127.0.0.1:8390 real_label=outline_like probe=random_8_bytes
+connected=True connect_latency_ms=0.27 roundtrip_ms=3104.47 sent_len=8 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=5 target=127.0.0.1:8390 real_label=outline_like probe=random_64_bytes
+connected=True connect_latency_ms=0.1 roundtrip_ms=3103.96 sent_len=64 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=5 target=127.0.0.1:8390 real_label=outline_like probe=split_random_32
+connected=True connect_latency_ms=0.22 roundtrip_ms=3305.14 sent_len=32 recv_len=0 recv_error=timeout shutdown_wr_after_send=False
+recv_preview_hex= recv_preview_ascii=
+------------------------------------------------------------------------------------------------------------------------
+round=5 target=127.0.0.1:8390 real_label=outline_like probe=random_32_then_shutdown_wr
+connected=True connect_latency_ms=0.54 roundtrip_ms=101.47 sent_len=32 recv_len=0 recv_error=peer_closed shutdown_wr_after_send=True
+recv_preview_hex= recv_preview_ascii=
+
+==========================================================================================================================================================================
+STAGE2 SUMMARY
+==========================================================================================================================================================================
+target             real_label         probe_name                   rounds conn_ok  avg_conn_ms  avg_rtt_ms   avg_recv_len timeout  peer_closed  conn_reset  recv_ok_none
+127.0.0.1:8381     native_aead_like   connect_only                 5      5        0.888        None         0            0        0            0           5           
+127.0.0.1:8381     native_aead_like   random_1_byte                5      5        0.118        3104.078     0            5        0            0           0           
+127.0.0.1:8381     native_aead_like   random_32_then_shutdown_wr   5      5        0.186        100.822      0            0        5            0           0           
+127.0.0.1:8381     native_aead_like   random_64_bytes              5      5        0.216        3103.87      0            5        0            0           0           
+127.0.0.1:8381     native_aead_like   random_8_bytes               5      5        0.24         3104.19      0            5        0            0           0           
+127.0.0.1:8381     native_aead_like   split_random_32              5      5        0.21         3305.168     0            5        0            0           0           
+127.0.0.1:8389     native_aead_like   connect_only                 5      5        0.44         None         0            0        0            0           5           
+127.0.0.1:8389     native_aead_like   random_1_byte                5      5        0.118        3104.25      0            5        0            0           0           
+127.0.0.1:8389     native_aead_like   random_32_then_shutdown_wr   5      5        0.332        101.072      0            0        5            0           0           
+127.0.0.1:8389     native_aead_like   random_64_bytes              5      5        0.302        3104.064     0            5        0            0           0           
+127.0.0.1:8389     native_aead_like   random_8_bytes               5      5        0.28         3104.028     0            5        0            0           0           
+127.0.0.1:8389     native_aead_like   split_random_32              5      5        0.408        3305.152     0            5        0            0           0           
+127.0.0.1:8390     outline_like       connect_only                 5      5        0.308        None         0            0        0            0           5           
+127.0.0.1:8390     outline_like       random_1_byte                5      5        0.086        3103.926     0            5        0            0           0           
+127.0.0.1:8390     outline_like       random_32_then_shutdown_wr   5      5        0.3          100.974      0            0        5            0           0           
+127.0.0.1:8390     outline_like       random_64_bytes              5      5        0.248        3104.27      0            5        0            0           0           
+127.0.0.1:8390     outline_like       random_8_bytes               5      5        0.394        3104.436     0            5        0            0           0           
+127.0.0.1:8390     outline_like       split_random_32              5      5        0.194        3304.426     0            5        0            0           0           

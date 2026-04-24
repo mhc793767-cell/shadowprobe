@@ -1,0 +1,5270 @@
+
+######## ROUND 1 ########
+
+====================================================================================================
+目标: 127.0.0.1:8080
+真实类别: plain_http
+轮次: 1
+可达: True
+连接耗时: 1.12 ms
+Top Family: plain_http
+Top Score: 0.95
+需要人工复核: False
+
+[家族评分]
+  - plain_http: 0.95
+  - unknown_encrypted_binary: 0.40
+  - tls_service: 0.00
+  - socks5_service: 0.00
+  - native_aead_like: 0.00
+  - outline_like: 0.00
+  - ss2022_like: 0.00
+
+[证据]
+  - HTTP 探针命中标准 HTTP 响应特征
+  - 空连接静默，且 TLS/SOCKS5 未命中
+  - 空连接静默且无明文 banner
+
+[排除命中]
+
+[行为指纹]
+  - connect_latency=1.12ms
+  - idle_behavior=silent
+  - http_probe=positive
+  - tls=handshake_failed
+  - random_entropy=4.99
+  - top3_scores=plain_http:0.95,unknown_encrypted_binary:0.40,tls_service:0.00
+
+[详细观测]
+
+  <connect>
+    reachable: True
+    latency_ms: 1.12
+
+  <idle>
+    connected: True
+    connect_latency_ms: 0.13
+    roundtrip_ms: 4005.4
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    has_banner: False
+    banner_like_text: False
+    silent: True
+
+  <http>
+    connected: True
+    connect_latency_ms: 0.2
+    roundtrip_ms: 100.87
+    sent_len: 99
+    recv_len: 452
+    recv_preview_hex: 485454502f312e3020323030204f4b0d0a5365727665723a2053696d706c65485454502f302e3620507974686f6e2f332e382e31300d0a446174653a20467269
+    recv_preview_ascii: HTTP/1.0 200 OK
+Server: SimpleHTTP/0.6 Python/3.8.10
+Date: Fri
+    recv_entropy: 5.419563272622108
+    recv_error: None
+    text_like: True
+    binary_like: False
+    looks_like_http: True
+
+  <tls>
+    connected: True
+    tls_handshake_success: False
+    ssl_error_type: SSLError
+    ssl_error: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1145)
+
+  <socks5>
+    connected: True
+    connect_latency_ms: 0.19
+    roundtrip_ms: 3102.94
+    sent_len: 3
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_socks5: False
+
+  <random_probe>
+    connected: True
+    connect_latency_ms: 0.24
+    roundtrip_ms: 101.2
+    sent_len: 32
+    recv_len: 502
+    recv_preview_hex: 3c21444f43545950452048544d4c205055424c494320222d2f2f5733432f2f4454442048544d4c20342e30312f2f454e220a202020202020202022687474703a
+    recv_preview_ascii: <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http:
+    recv_entropy: 4.987597899327879
+    recv_error: None
+    text_like: True
+    binary_like: False
+    high_entropy_response: False
+    binary_response: False
+
+  <ssh>
+    connected: True
+    connect_latency_ms: 0.53
+    roundtrip_ms: 3502.87
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_ssh: False
+
+  <redis>
+    connected: True
+    connect_latency_ms: 0.21
+    roundtrip_ms: 100.76
+    sent_len: 14
+    recv_len: 493
+    recv_preview_hex: 3c21444f43545950452048544d4c205055424c494320222d2f2f5733432f2f4454442048544d4c20342e30312f2f454e220a202020202020202022687474703a
+    recv_preview_ascii: <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http:
+    recv_entropy: 4.97051097575947
+    recv_error: None
+    text_like: True
+    binary_like: False
+    looks_like_redis: False
+
+  <smtp>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.16, 'roundtrip_ms': 3504.99, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 1.56, 'roundtrip_ms': 203.17, 'sent_len': 18, 'recv_len': 502, 'recv_preview_hex': '3c21444f43545950452048544d4c205055424c494320222d2f2f5733432f2f4454442048544d4c20342e30312f2f454e220a202020202020202022687474703a', 'recv_preview_ascii': '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"\n        "http:', 'recv_entropy': 4.986548433638686, 'recv_error': None, 'text_like': True, 'binary_like': False, 'looks_like_smtp': False}
+    looks_like_smtp: False
+
+  <pop3>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.15, 'roundtrip_ms': 3504.95, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.36, 'roundtrip_ms': 201.48, 'sent_len': 6, 'recv_len': 495, 'recv_preview_hex': '3c21444f43545950452048544d4c205055424c494320222d2f2f5733432f2f4454442048544d4c20342e30312f2f454e220a202020202020202022687474703a', 'recv_preview_ascii': '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"\n        "http:', 'recv_entropy': 4.975514152822542, 'recv_error': None, 'text_like': True, 'binary_like': False, 'looks_like_pop3': False}
+    looks_like_pop3: False
+
+  <imap>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.13, 'roundtrip_ms': 3504.3, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.15, 'roundtrip_ms': 200.82, 'sent_len': 17, 'recv_len': 502, 'recv_preview_hex': '3c21444f43545950452048544d4c205055424c494320222d2f2f5733432f2f4454442048544d4c20342e30312f2f454e220a202020202020202022687474703a', 'recv_preview_ascii': '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"\n        "http:', 'recv_entropy': 4.981893828617665, 'recv_error': None, 'text_like': True, 'binary_like': False, 'looks_like_imap': False}
+    looks_like_imap: False
+
+  <mysql>
+    connected: True
+    connect_latency_ms: 0.17
+    roundtrip_ms: 3504.97
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_mysql: False
+
+  <postgresql>
+    connected: True
+    connect_latency_ms: 0.18
+    roundtrip_ms: 3206.24
+    sent_len: 8
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_postgresql: False
+====================================================================================================
+====================================================================================================
+目标: 127.0.0.1:8443
+真实类别: tls_service
+轮次: 1
+可达: True
+连接耗时: 0.41 ms
+Top Family: tls_service
+Top Score: 0.85
+需要人工复核: False
+
+[家族评分]
+  - tls_service: 0.85
+  - unknown_encrypted_binary: 0.32
+  - plain_http: 0.00
+  - socks5_service: 0.00
+  - native_aead_like: 0.00
+  - outline_like: 0.00
+  - ss2022_like: 0.00
+
+[证据]
+  - TLS 标准握手成功，版本=TLSv1.3
+  - 空连接静默且无明文 banner
+  - 随机探针下未收到响应，表现为静默处理
+
+[排除命中]
+
+[行为指纹]
+  - connect_latency=0.41ms
+  - idle_behavior=silent
+  - tls=TLSv1.3
+  - random_entropy=0.00
+  - top3_scores=tls_service:0.85,unknown_encrypted_binary:0.32,plain_http:0.00
+
+[详细观测]
+
+  <connect>
+    reachable: True
+    latency_ms: 0.41
+
+  <idle>
+    connected: True
+    connect_latency_ms: 0.05
+    roundtrip_ms: 4005.57
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    has_banner: False
+    banner_like_text: False
+    silent: True
+
+  <http>
+    connected: True
+    connect_latency_ms: 0.23
+    roundtrip_ms: 101.11
+    sent_len: 99
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    looks_like_http: False
+
+  <tls>
+    connected: True
+    tls_handshake_success: True
+    connect_latency_ms: 0.14
+    handshake_latency_ms: 1.8
+    tls_version: TLSv1.3
+    cipher: ('TLS_AES_256_GCM_SHA384', 'TLSv1.3', 256)
+    certificate_present: True
+
+  <socks5>
+    connected: True
+    connect_latency_ms: 0.05
+    roundtrip_ms: 3104.22
+    sent_len: 3
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_socks5: False
+
+  <random_probe>
+    connected: True
+    connect_latency_ms: 0.14
+    roundtrip_ms: 101.0
+    sent_len: 32
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    high_entropy_response: False
+    binary_response: False
+
+  <ssh>
+    connected: True
+    connect_latency_ms: 0.17
+    roundtrip_ms: 3504.92
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_ssh: False
+
+  <redis>
+    connected: True
+    connect_latency_ms: 0.14
+    roundtrip_ms: 101.76
+    sent_len: 14
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    looks_like_redis: False
+
+  <smtp>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.17, 'roundtrip_ms': 3504.93, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.16, 'roundtrip_ms': 201.79, 'sent_len': 18, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': None, 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    looks_like_smtp: False
+
+  <pop3>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.2, 'roundtrip_ms': 3505.3, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.14, 'roundtrip_ms': 201.04, 'sent_len': 6, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': None, 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    looks_like_pop3: False
+
+  <imap>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.11, 'roundtrip_ms': 3505.71, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.21, 'roundtrip_ms': 201.19, 'sent_len': 17, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': None, 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    looks_like_imap: False
+
+  <mysql>
+    connected: True
+    connect_latency_ms: 0.2
+    roundtrip_ms: 3505.31
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_mysql: False
+
+  <postgresql>
+    connected: True
+    connect_latency_ms: 0.25
+    roundtrip_ms: 201.34
+    sent_len: 8
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    looks_like_postgresql: False
+====================================================================================================
+====================================================================================================
+目标: 127.0.0.1:1080
+真实类别: socks5_service
+轮次: 1
+可达: True
+连接耗时: 0.86 ms
+Top Family: socks5_service
+Top Score: 0.95
+需要人工复核: False
+
+[家族评分]
+  - socks5_service: 0.95
+  - unknown_encrypted_binary: 0.32
+  - plain_http: 0.00
+  - tls_service: 0.00
+  - native_aead_like: 0.00
+  - outline_like: 0.00
+  - ss2022_like: 0.00
+
+[证据]
+  - SOCKS5 握手命中标准响应
+  - 空连接静默且无明文 banner
+  - 随机探针下未收到响应，表现为静默处理
+
+[排除命中]
+
+[行为指纹]
+  - connect_latency=0.86ms
+  - idle_behavior=silent
+  - tls=handshake_failed
+  - socks5=positive
+  - random_entropy=0.00
+  - top3_scores=socks5_service:0.95,unknown_encrypted_binary:0.32,plain_http:0.00
+
+[详细观测]
+
+  <connect>
+    reachable: True
+    latency_ms: 0.86
+
+  <idle>
+    connected: True
+    connect_latency_ms: 0.04
+    roundtrip_ms: 4004.81
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    has_banner: False
+    banner_like_text: False
+    silent: True
+
+  <http>
+    connected: True
+    connect_latency_ms: 0.24
+    roundtrip_ms: 101.95
+    sent_len: 99
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    looks_like_http: False
+
+  <tls>
+    connected: True
+    tls_handshake_success: False
+    ssl_error_type: SSLEOFError
+    ssl_error: EOF occurred in violation of protocol (_ssl.c:1145)
+
+  <socks5>
+    connected: True
+    connect_latency_ms: 0.04
+    roundtrip_ms: 101.04
+    sent_len: 3
+    recv_len: 2
+    recv_preview_hex: 05ff
+    recv_preview_ascii: ..
+    recv_entropy: 1.0
+    recv_error: None
+    text_like: False
+    binary_like: True
+    looks_like_socks5: True
+
+  <random_probe>
+    connected: True
+    connect_latency_ms: 0.11
+    roundtrip_ms: 100.97
+    sent_len: 32
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    high_entropy_response: False
+    binary_response: False
+
+  <ssh>
+    connected: True
+    connect_latency_ms: 0.18
+    roundtrip_ms: 3505.52
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_ssh: False
+
+  <redis>
+    connected: True
+    connect_latency_ms: 0.14
+    roundtrip_ms: 101.08
+    sent_len: 14
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    looks_like_redis: False
+
+  <smtp>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.16, 'roundtrip_ms': 3505.4, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.25, 'roundtrip_ms': 201.22, 'sent_len': 18, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': None, 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    looks_like_smtp: False
+
+  <pop3>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.25, 'roundtrip_ms': 3505.04, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.18, 'roundtrip_ms': 201.29, 'sent_len': 6, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': None, 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    looks_like_pop3: False
+
+  <imap>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.13, 'roundtrip_ms': 3505.41, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.26, 'roundtrip_ms': 201.63, 'sent_len': 17, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': None, 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    looks_like_imap: False
+
+  <mysql>
+    connected: True
+    connect_latency_ms: 0.86
+    roundtrip_ms: 3505.72
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_mysql: False
+
+  <postgresql>
+    connected: True
+    connect_latency_ms: 0.15
+    roundtrip_ms: 201.3
+    sent_len: 8
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    looks_like_postgresql: False
+====================================================================================================
+====================================================================================================
+目标: 127.0.0.1:8381
+真实类别: native_aead_like
+轮次: 1
+可达: True
+连接耗时: 0.18 ms
+Top Family: unknown_encrypted_binary
+Top Score: 0.67
+需要人工复核: True
+
+[家族评分]
+  - unknown_encrypted_binary: 0.67
+  - outline_like: 0.31
+  - ss2022_like: 0.27
+  - native_aead_like: 0.16
+  - plain_http: 0.00
+  - tls_service: 0.00
+  - socks5_service: 0.00
+
+[证据]
+  - 空连接静默，且 TLS/SOCKS5 未命中
+  - 空连接静默且无明文 banner
+  - 随机探针下未收到响应，表现为静默处理
+  - 连接可达，但常见明文/TLS/SOCKS5 特征均未命中
+  - 静默型行为可保留为 outline/2022 候选，但需人工复核
+
+[排除命中]
+
+[行为指纹]
+  - connect_latency=0.18ms
+  - idle_behavior=silent
+  - tls=handshake_failed
+  - random_entropy=0.00
+  - top3_scores=unknown_encrypted_binary:0.67,outline_like:0.31,ss2022_like:0.27
+
+[详细观测]
+
+  <connect>
+    reachable: True
+    latency_ms: 0.18
+
+  <idle>
+    connected: True
+    connect_latency_ms: 0.04
+    roundtrip_ms: 4006.06
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    has_banner: False
+    banner_like_text: False
+    silent: True
+
+  <http>
+    connected: True
+    connect_latency_ms: 0.58
+    roundtrip_ms: 3105.41
+    sent_len: 99
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_http: False
+
+  <tls>
+    connected: False
+    tls_handshake_success: False
+    error: timeout: _ssl.c:1128: The handshake operation timed out
+
+  <socks5>
+    connected: True
+    connect_latency_ms: 0.14
+    roundtrip_ms: 3105.66
+    sent_len: 3
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_socks5: False
+
+  <random_probe>
+    connected: True
+    connect_latency_ms: 0.2
+    roundtrip_ms: 3105.71
+    sent_len: 32
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    high_entropy_response: False
+    binary_response: False
+
+  <ssh>
+    connected: True
+    connect_latency_ms: 0.23
+    roundtrip_ms: 3505.81
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_ssh: False
+
+  <redis>
+    connected: True
+    connect_latency_ms: 0.75
+    roundtrip_ms: 3105.23
+    sent_len: 14
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_redis: False
+
+  <smtp>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.14, 'roundtrip_ms': 3505.3, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.37, 'roundtrip_ms': 3205.41, 'sent_len': 18, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    looks_like_smtp: False
+
+  <pop3>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.18, 'roundtrip_ms': 3505.39, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.18, 'roundtrip_ms': 3204.67, 'sent_len': 6, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    looks_like_pop3: False
+
+  <imap>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.27, 'roundtrip_ms': 3503.69, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.34, 'roundtrip_ms': 3204.16, 'sent_len': 17, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    looks_like_imap: False
+
+  <mysql>
+    connected: True
+    connect_latency_ms: 0.26
+    roundtrip_ms: 3505.54
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_mysql: False
+
+  <postgresql>
+    connected: True
+    connect_latency_ms: 0.15
+    roundtrip_ms: 3205.15
+    sent_len: 8
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_postgresql: False
+====================================================================================================
+====================================================================================================
+目标: 127.0.0.1:8389
+真实类别: native_aead_like
+轮次: 1
+可达: True
+连接耗时: 0.12 ms
+Top Family: unknown_encrypted_binary
+Top Score: 0.67
+需要人工复核: True
+
+[家族评分]
+  - unknown_encrypted_binary: 0.67
+  - outline_like: 0.31
+  - ss2022_like: 0.27
+  - native_aead_like: 0.16
+  - plain_http: 0.00
+  - tls_service: 0.00
+  - socks5_service: 0.00
+
+[证据]
+  - 空连接静默，且 TLS/SOCKS5 未命中
+  - 空连接静默且无明文 banner
+  - 随机探针下未收到响应，表现为静默处理
+  - 连接可达，但常见明文/TLS/SOCKS5 特征均未命中
+  - 静默型行为可保留为 outline/2022 候选，但需人工复核
+
+[排除命中]
+
+[行为指纹]
+  - connect_latency=0.12ms
+  - idle_behavior=silent
+  - tls=handshake_failed
+  - random_entropy=0.00
+  - top3_scores=unknown_encrypted_binary:0.67,outline_like:0.31,ss2022_like:0.27
+
+[详细观测]
+
+  <connect>
+    reachable: True
+    latency_ms: 0.12
+
+  <idle>
+    connected: True
+    connect_latency_ms: 0.04
+    roundtrip_ms: 4005.53
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    has_banner: False
+    banner_like_text: False
+    silent: True
+
+  <http>
+    connected: True
+    connect_latency_ms: 0.31
+    roundtrip_ms: 3105.43
+    sent_len: 99
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_http: False
+
+  <tls>
+    connected: False
+    tls_handshake_success: False
+    error: timeout: _ssl.c:1128: The handshake operation timed out
+
+  <socks5>
+    connected: True
+    connect_latency_ms: 0.24
+    roundtrip_ms: 3104.82
+    sent_len: 3
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_socks5: False
+
+  <random_probe>
+    connected: True
+    connect_latency_ms: 0.16
+    roundtrip_ms: 3104.99
+    sent_len: 32
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    high_entropy_response: False
+    binary_response: False
+
+  <ssh>
+    connected: True
+    connect_latency_ms: 0.15
+    roundtrip_ms: 3505.05
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_ssh: False
+
+  <redis>
+    connected: True
+    connect_latency_ms: 0.14
+    roundtrip_ms: 3105.16
+    sent_len: 14
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_redis: False
+
+  <smtp>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.15, 'roundtrip_ms': 3504.78, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.24, 'roundtrip_ms': 3204.63, 'sent_len': 18, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    looks_like_smtp: False
+
+  <pop3>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.15, 'roundtrip_ms': 3504.94, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.2, 'roundtrip_ms': 3204.85, 'sent_len': 6, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    looks_like_pop3: False
+
+  <imap>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.32, 'roundtrip_ms': 3504.0, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.19, 'roundtrip_ms': 3204.89, 'sent_len': 17, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    looks_like_imap: False
+
+  <mysql>
+    connected: True
+    connect_latency_ms: 0.41
+    roundtrip_ms: 3505.12
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_mysql: False
+
+  <postgresql>
+    connected: True
+    connect_latency_ms: 0.18
+    roundtrip_ms: 3204.34
+    sent_len: 8
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_postgresql: False
+====================================================================================================
+====================================================================================================
+目标: 127.0.0.1:8390
+真实类别: outline_like
+轮次: 1
+可达: True
+连接耗时: 0.15 ms
+Top Family: unknown_encrypted_binary
+Top Score: 0.67
+需要人工复核: True
+
+[家族评分]
+  - unknown_encrypted_binary: 0.67
+  - outline_like: 0.31
+  - ss2022_like: 0.27
+  - native_aead_like: 0.16
+  - plain_http: 0.00
+  - tls_service: 0.00
+  - socks5_service: 0.00
+
+[证据]
+  - 空连接静默，且 TLS/SOCKS5 未命中
+  - 空连接静默且无明文 banner
+  - 随机探针下未收到响应，表现为静默处理
+  - 连接可达，但常见明文/TLS/SOCKS5 特征均未命中
+  - 静默型行为可保留为 outline/2022 候选，但需人工复核
+
+[排除命中]
+
+[行为指纹]
+  - connect_latency=0.15ms
+  - idle_behavior=silent
+  - tls=handshake_failed
+  - random_entropy=0.00
+  - top3_scores=unknown_encrypted_binary:0.67,outline_like:0.31,ss2022_like:0.27
+
+[详细观测]
+
+  <connect>
+    reachable: True
+    latency_ms: 0.15
+
+  <idle>
+    connected: True
+    connect_latency_ms: 0.11
+    roundtrip_ms: 4005.36
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    has_banner: False
+    banner_like_text: False
+    silent: True
+
+  <http>
+    connected: True
+    connect_latency_ms: 0.14
+    roundtrip_ms: 3105.26
+    sent_len: 99
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_http: False
+
+  <tls>
+    connected: False
+    tls_handshake_success: False
+    error: timeout: _ssl.c:1128: The handshake operation timed out
+
+  <socks5>
+    connected: True
+    connect_latency_ms: 0.21
+    roundtrip_ms: 3104.14
+    sent_len: 3
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_socks5: False
+
+  <random_probe>
+    connected: True
+    connect_latency_ms: 0.14
+    roundtrip_ms: 3104.37
+    sent_len: 32
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    high_entropy_response: False
+    binary_response: False
+
+  <ssh>
+    connected: True
+    connect_latency_ms: 0.23
+    roundtrip_ms: 3504.58
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_ssh: False
+
+  <redis>
+    connected: True
+    connect_latency_ms: 0.19
+    roundtrip_ms: 3104.63
+    sent_len: 14
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_redis: False
+
+  <smtp>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.15, 'roundtrip_ms': 3505.46, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.24, 'roundtrip_ms': 3205.84, 'sent_len': 18, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    looks_like_smtp: False
+
+  <pop3>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.19, 'roundtrip_ms': 3505.95, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.14, 'roundtrip_ms': 3205.12, 'sent_len': 6, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    looks_like_pop3: False
+
+  <imap>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.2, 'roundtrip_ms': 3505.33, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.21, 'roundtrip_ms': 3205.09, 'sent_len': 17, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    looks_like_imap: False
+
+  <mysql>
+    connected: True
+    connect_latency_ms: 0.18
+    roundtrip_ms: 3506.12
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_mysql: False
+
+  <postgresql>
+    connected: True
+    connect_latency_ms: 0.17
+    roundtrip_ms: 3204.89
+    sent_len: 8
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_postgresql: False
+====================================================================================================
+
+######## ROUND 2 ########
+
+====================================================================================================
+目标: 127.0.0.1:8080
+真实类别: plain_http
+轮次: 2
+可达: True
+连接耗时: 0.24 ms
+Top Family: plain_http
+Top Score: 0.95
+需要人工复核: False
+
+[家族评分]
+  - plain_http: 0.95
+  - unknown_encrypted_binary: 0.52
+  - tls_service: 0.00
+  - socks5_service: 0.00
+  - native_aead_like: 0.00
+  - outline_like: 0.00
+  - ss2022_like: 0.00
+
+[证据]
+  - HTTP 探针命中标准 HTTP 响应特征
+  - 空连接静默，且 TLS/SOCKS5 未命中
+  - 空连接静默且无明文 banner
+  - 随机探针下未收到响应，表现为静默处理
+
+[排除命中]
+
+[行为指纹]
+  - connect_latency=0.24ms
+  - idle_behavior=silent
+  - http_probe=positive
+  - tls=handshake_failed
+  - random_entropy=0.00
+  - top3_scores=plain_http:0.95,unknown_encrypted_binary:0.52,tls_service:0.00
+
+[详细观测]
+
+  <connect>
+    reachable: True
+    latency_ms: 0.24
+
+  <idle>
+    connected: True
+    connect_latency_ms: 0.04
+    roundtrip_ms: 4006.42
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    has_banner: False
+    banner_like_text: False
+    silent: True
+
+  <http>
+    connected: True
+    connect_latency_ms: 0.21
+    roundtrip_ms: 100.87
+    sent_len: 99
+    recv_len: 452
+    recv_preview_hex: 485454502f312e3020323030204f4b0d0a5365727665723a2053696d706c65485454502f302e3620507974686f6e2f332e382e31300d0a446174653a20467269
+    recv_preview_ascii: HTTP/1.0 200 OK
+Server: SimpleHTTP/0.6 Python/3.8.10
+Date: Fri
+    recv_entropy: 5.407872536969134
+    recv_error: None
+    text_like: True
+    binary_like: False
+    looks_like_http: True
+
+  <tls>
+    connected: True
+    tls_handshake_success: False
+    ssl_error_type: SSLError
+    ssl_error: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1145)
+
+  <socks5>
+    connected: True
+    connect_latency_ms: 0.05
+    roundtrip_ms: 3103.8
+    sent_len: 3
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_socks5: False
+
+  <random_probe>
+    connected: True
+    connect_latency_ms: 0.16
+    roundtrip_ms: 3104.58
+    sent_len: 32
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    high_entropy_response: False
+    binary_response: False
+
+  <ssh>
+    connected: True
+    connect_latency_ms: 0.24
+    roundtrip_ms: 3504.96
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_ssh: False
+
+  <redis>
+    connected: True
+    connect_latency_ms: 0.25
+    roundtrip_ms: 101.46
+    sent_len: 14
+    recv_len: 493
+    recv_preview_hex: 3c21444f43545950452048544d4c205055424c494320222d2f2f5733432f2f4454442048544d4c20342e30312f2f454e220a202020202020202022687474703a
+    recv_preview_ascii: <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http:
+    recv_entropy: 4.97051097575947
+    recv_error: None
+    text_like: True
+    binary_like: False
+    looks_like_redis: False
+
+  <smtp>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.11, 'roundtrip_ms': 3504.53, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.14, 'roundtrip_ms': 201.02, 'sent_len': 18, 'recv_len': 502, 'recv_preview_hex': '3c21444f43545950452048544d4c205055424c494320222d2f2f5733432f2f4454442048544d4c20342e30312f2f454e220a202020202020202022687474703a', 'recv_preview_ascii': '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"\n        "http:', 'recv_entropy': 4.986548433638686, 'recv_error': None, 'text_like': True, 'binary_like': False, 'looks_like_smtp': False}
+    looks_like_smtp: False
+
+  <pop3>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.12, 'roundtrip_ms': 3504.77, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.14, 'roundtrip_ms': 201.25, 'sent_len': 6, 'recv_len': 495, 'recv_preview_hex': '3c21444f43545950452048544d4c205055424c494320222d2f2f5733432f2f4454442048544d4c20342e30312f2f454e220a202020202020202022687474703a', 'recv_preview_ascii': '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"\n        "http:', 'recv_entropy': 4.975514152822542, 'recv_error': None, 'text_like': True, 'binary_like': False, 'looks_like_pop3': False}
+    looks_like_pop3: False
+
+  <imap>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.12, 'roundtrip_ms': 3505.35, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.24, 'roundtrip_ms': 201.47, 'sent_len': 17, 'recv_len': 502, 'recv_preview_hex': '3c21444f43545950452048544d4c205055424c494320222d2f2f5733432f2f4454442048544d4c20342e30312f2f454e220a202020202020202022687474703a', 'recv_preview_ascii': '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"\n        "http:', 'recv_entropy': 4.981893828617665, 'recv_error': None, 'text_like': True, 'binary_like': False, 'looks_like_imap': False}
+    looks_like_imap: False
+
+  <mysql>
+    connected: True
+    connect_latency_ms: 0.16
+    roundtrip_ms: 3504.85
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_mysql: False
+
+  <postgresql>
+    connected: True
+    connect_latency_ms: 0.24
+    roundtrip_ms: 3202.9
+    sent_len: 8
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_postgresql: False
+====================================================================================================
+====================================================================================================
+目标: 127.0.0.1:8443
+真实类别: tls_service
+轮次: 2
+可达: True
+连接耗时: 0.24 ms
+Top Family: tls_service
+Top Score: 0.85
+需要人工复核: False
+
+[家族评分]
+  - tls_service: 0.85
+  - unknown_encrypted_binary: 0.32
+  - plain_http: 0.00
+  - socks5_service: 0.00
+  - native_aead_like: 0.00
+  - outline_like: 0.00
+  - ss2022_like: 0.00
+
+[证据]
+  - TLS 标准握手成功，版本=TLSv1.3
+  - 空连接静默且无明文 banner
+  - 随机探针下未收到响应，表现为静默处理
+
+[排除命中]
+
+[行为指纹]
+  - connect_latency=0.24ms
+  - idle_behavior=silent
+  - tls=TLSv1.3
+  - random_entropy=0.00
+  - top3_scores=tls_service:0.85,unknown_encrypted_binary:0.32,plain_http:0.00
+
+[详细观测]
+
+  <connect>
+    reachable: True
+    latency_ms: 0.24
+
+  <idle>
+    connected: True
+    connect_latency_ms: 0.06
+    roundtrip_ms: 4005.32
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    has_banner: False
+    banner_like_text: False
+    silent: True
+
+  <http>
+    connected: True
+    connect_latency_ms: 0.14
+    roundtrip_ms: 100.79
+    sent_len: 99
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    looks_like_http: False
+
+  <tls>
+    connected: True
+    tls_handshake_success: True
+    connect_latency_ms: 0.12
+    handshake_latency_ms: 1.65
+    tls_version: TLSv1.3
+    cipher: ('TLS_AES_256_GCM_SHA384', 'TLSv1.3', 256)
+    certificate_present: True
+
+  <socks5>
+    connected: True
+    connect_latency_ms: 0.07
+    roundtrip_ms: 3104.97
+    sent_len: 3
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_socks5: False
+
+  <random_probe>
+    connected: True
+    connect_latency_ms: 0.24
+    roundtrip_ms: 102.04
+    sent_len: 32
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    high_entropy_response: False
+    binary_response: False
+
+  <ssh>
+    connected: True
+    connect_latency_ms: 0.13
+    roundtrip_ms: 3501.28
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_ssh: False
+
+  <redis>
+    connected: True
+    connect_latency_ms: 0.23
+    roundtrip_ms: 101.04
+    sent_len: 14
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    looks_like_redis: False
+
+  <smtp>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.13, 'roundtrip_ms': 3505.68, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.24, 'roundtrip_ms': 202.04, 'sent_len': 18, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': None, 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    looks_like_smtp: False
+
+  <pop3>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.24, 'roundtrip_ms': 3505.38, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.14, 'roundtrip_ms': 201.14, 'sent_len': 6, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': None, 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    looks_like_pop3: False
+
+  <imap>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.16, 'roundtrip_ms': 3505.11, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.13, 'roundtrip_ms': 201.25, 'sent_len': 17, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': None, 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    looks_like_imap: False
+
+  <mysql>
+    connected: True
+    connect_latency_ms: 0.24
+    roundtrip_ms: 3505.23
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_mysql: False
+
+  <postgresql>
+    connected: True
+    connect_latency_ms: 0.18
+    roundtrip_ms: 201.83
+    sent_len: 8
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    looks_like_postgresql: False
+====================================================================================================
+====================================================================================================
+目标: 127.0.0.1:1080
+真实类别: socks5_service
+轮次: 2
+可达: True
+连接耗时: 0.19 ms
+Top Family: socks5_service
+Top Score: 0.95
+需要人工复核: False
+
+[家族评分]
+  - socks5_service: 0.95
+  - unknown_encrypted_binary: 0.32
+  - plain_http: 0.00
+  - tls_service: 0.00
+  - native_aead_like: 0.00
+  - outline_like: 0.00
+  - ss2022_like: 0.00
+
+[证据]
+  - SOCKS5 握手命中标准响应
+  - 空连接静默且无明文 banner
+  - 随机探针下未收到响应，表现为静默处理
+
+[排除命中]
+
+[行为指纹]
+  - connect_latency=0.19ms
+  - idle_behavior=silent
+  - tls=handshake_failed
+  - socks5=positive
+  - random_entropy=0.00
+  - top3_scores=socks5_service:0.95,unknown_encrypted_binary:0.32,plain_http:0.00
+
+[详细观测]
+
+  <connect>
+    reachable: True
+    latency_ms: 0.19
+
+  <idle>
+    connected: True
+    connect_latency_ms: 0.08
+    roundtrip_ms: 4005.75
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    has_banner: False
+    banner_like_text: False
+    silent: True
+
+  <http>
+    connected: True
+    connect_latency_ms: 1.47
+    roundtrip_ms: 103.25
+    sent_len: 99
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    looks_like_http: False
+
+  <tls>
+    connected: True
+    tls_handshake_success: False
+    ssl_error_type: SSLEOFError
+    ssl_error: EOF occurred in violation of protocol (_ssl.c:1145)
+
+  <socks5>
+    connected: True
+    connect_latency_ms: 0.25
+    roundtrip_ms: 101.1
+    sent_len: 3
+    recv_len: 2
+    recv_preview_hex: 05ff
+    recv_preview_ascii: ..
+    recv_entropy: 1.0
+    recv_error: None
+    text_like: False
+    binary_like: True
+    looks_like_socks5: True
+
+  <random_probe>
+    connected: True
+    connect_latency_ms: 0.3
+    roundtrip_ms: 101.2
+    sent_len: 32
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    high_entropy_response: False
+    binary_response: False
+
+  <ssh>
+    connected: True
+    connect_latency_ms: 0.37
+    roundtrip_ms: 3505.0
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_ssh: False
+
+  <redis>
+    connected: True
+    connect_latency_ms: 0.24
+    roundtrip_ms: 100.98
+    sent_len: 14
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    looks_like_redis: False
+
+  <smtp>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.17, 'roundtrip_ms': 3505.53, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.15, 'roundtrip_ms': 201.4, 'sent_len': 18, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': None, 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    looks_like_smtp: False
+
+  <pop3>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.25, 'roundtrip_ms': 3503.25, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.14, 'roundtrip_ms': 201.18, 'sent_len': 6, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': None, 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    looks_like_pop3: False
+
+  <imap>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.12, 'roundtrip_ms': 3505.58, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.23, 'roundtrip_ms': 202.11, 'sent_len': 17, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': None, 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    looks_like_imap: False
+
+  <mysql>
+    connected: True
+    connect_latency_ms: 0.18
+    roundtrip_ms: 3505.26
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_mysql: False
+
+  <postgresql>
+    connected: True
+    connect_latency_ms: 0.15
+    roundtrip_ms: 201.17
+    sent_len: 8
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    looks_like_postgresql: False
+====================================================================================================
+====================================================================================================
+目标: 127.0.0.1:8381
+真实类别: native_aead_like
+轮次: 2
+可达: True
+连接耗时: 0.25 ms
+Top Family: unknown_encrypted_binary
+Top Score: 0.67
+需要人工复核: True
+
+[家族评分]
+  - unknown_encrypted_binary: 0.67
+  - outline_like: 0.31
+  - ss2022_like: 0.27
+  - native_aead_like: 0.16
+  - plain_http: 0.00
+  - tls_service: 0.00
+  - socks5_service: 0.00
+
+[证据]
+  - 空连接静默，且 TLS/SOCKS5 未命中
+  - 空连接静默且无明文 banner
+  - 随机探针下未收到响应，表现为静默处理
+  - 连接可达，但常见明文/TLS/SOCKS5 特征均未命中
+  - 静默型行为可保留为 outline/2022 候选，但需人工复核
+
+[排除命中]
+
+[行为指纹]
+  - connect_latency=0.25ms
+  - idle_behavior=silent
+  - tls=handshake_failed
+  - random_entropy=0.00
+  - top3_scores=unknown_encrypted_binary:0.67,outline_like:0.31,ss2022_like:0.27
+
+[详细观测]
+
+  <connect>
+    reachable: True
+    latency_ms: 0.25
+
+  <idle>
+    connected: True
+    connect_latency_ms: 0.42
+    roundtrip_ms: 4006.89
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    has_banner: False
+    banner_like_text: False
+    silent: True
+
+  <http>
+    connected: True
+    connect_latency_ms: 0.25
+    roundtrip_ms: 3104.69
+    sent_len: 99
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_http: False
+
+  <tls>
+    connected: False
+    tls_handshake_success: False
+    error: timeout: _ssl.c:1128: The handshake operation timed out
+
+  <socks5>
+    connected: True
+    connect_latency_ms: 0.23
+    roundtrip_ms: 3104.35
+    sent_len: 3
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_socks5: False
+
+  <random_probe>
+    connected: True
+    connect_latency_ms: 0.14
+    roundtrip_ms: 3105.56
+    sent_len: 32
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    high_entropy_response: False
+    binary_response: False
+
+  <ssh>
+    connected: True
+    connect_latency_ms: 0.27
+    roundtrip_ms: 3502.03
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_ssh: False
+
+  <redis>
+    connected: True
+    connect_latency_ms: 0.25
+    roundtrip_ms: 3105.21
+    sent_len: 14
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_redis: False
+
+  <smtp>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.35, 'roundtrip_ms': 3505.78, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.75, 'roundtrip_ms': 3205.34, 'sent_len': 18, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    looks_like_smtp: False
+
+  <pop3>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.27, 'roundtrip_ms': 3505.42, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.18, 'roundtrip_ms': 3204.77, 'sent_len': 6, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    looks_like_pop3: False
+
+  <imap>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.26, 'roundtrip_ms': 3505.52, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.21, 'roundtrip_ms': 3204.54, 'sent_len': 17, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    looks_like_imap: False
+
+  <mysql>
+    connected: True
+    connect_latency_ms: 0.23
+    roundtrip_ms: 3505.85
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_mysql: False
+
+  <postgresql>
+    connected: True
+    connect_latency_ms: 0.2
+    roundtrip_ms: 3205.36
+    sent_len: 8
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_postgresql: False
+====================================================================================================
+====================================================================================================
+目标: 127.0.0.1:8389
+真实类别: native_aead_like
+轮次: 2
+可达: True
+连接耗时: 0.13 ms
+Top Family: unknown_encrypted_binary
+Top Score: 0.67
+需要人工复核: True
+
+[家族评分]
+  - unknown_encrypted_binary: 0.67
+  - outline_like: 0.31
+  - ss2022_like: 0.27
+  - native_aead_like: 0.16
+  - plain_http: 0.00
+  - tls_service: 0.00
+  - socks5_service: 0.00
+
+[证据]
+  - 空连接静默，且 TLS/SOCKS5 未命中
+  - 空连接静默且无明文 banner
+  - 随机探针下未收到响应，表现为静默处理
+  - 连接可达，但常见明文/TLS/SOCKS5 特征均未命中
+  - 静默型行为可保留为 outline/2022 候选，但需人工复核
+
+[排除命中]
+
+[行为指纹]
+  - connect_latency=0.13ms
+  - idle_behavior=silent
+  - tls=handshake_failed
+  - random_entropy=0.00
+  - top3_scores=unknown_encrypted_binary:0.67,outline_like:0.31,ss2022_like:0.27
+
+[详细观测]
+
+  <connect>
+    reachable: True
+    latency_ms: 0.13
+
+  <idle>
+    connected: True
+    connect_latency_ms: 0.04
+    roundtrip_ms: 4005.36
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    has_banner: False
+    banner_like_text: False
+    silent: True
+
+  <http>
+    connected: True
+    connect_latency_ms: 0.23
+    roundtrip_ms: 3104.59
+    sent_len: 99
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_http: False
+
+  <tls>
+    connected: False
+    tls_handshake_success: False
+    error: timeout: _ssl.c:1128: The handshake operation timed out
+
+  <socks5>
+    connected: True
+    connect_latency_ms: 0.18
+    roundtrip_ms: 3105.39
+    sent_len: 3
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_socks5: False
+
+  <random_probe>
+    connected: True
+    connect_latency_ms: 0.24
+    roundtrip_ms: 3105.42
+    sent_len: 32
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    high_entropy_response: False
+    binary_response: False
+
+  <ssh>
+    connected: True
+    connect_latency_ms: 0.15
+    roundtrip_ms: 3505.66
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_ssh: False
+
+  <redis>
+    connected: True
+    connect_latency_ms: 0.18
+    roundtrip_ms: 3105.69
+    sent_len: 14
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_redis: False
+
+  <smtp>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.24, 'roundtrip_ms': 3505.1, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.4, 'roundtrip_ms': 3204.23, 'sent_len': 18, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    looks_like_smtp: False
+
+  <pop3>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.19, 'roundtrip_ms': 3504.61, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.27, 'roundtrip_ms': 3205.56, 'sent_len': 6, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    looks_like_pop3: False
+
+  <imap>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.15, 'roundtrip_ms': 3506.39, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.24, 'roundtrip_ms': 3204.94, 'sent_len': 17, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    looks_like_imap: False
+
+  <mysql>
+    connected: True
+    connect_latency_ms: 0.24
+    roundtrip_ms: 3505.23
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_mysql: False
+
+  <postgresql>
+    connected: True
+    connect_latency_ms: 0.15
+    roundtrip_ms: 3205.37
+    sent_len: 8
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_postgresql: False
+====================================================================================================
+====================================================================================================
+目标: 127.0.0.1:8390
+真实类别: outline_like
+轮次: 2
+可达: True
+连接耗时: 0.13 ms
+Top Family: unknown_encrypted_binary
+Top Score: 0.67
+需要人工复核: True
+
+[家族评分]
+  - unknown_encrypted_binary: 0.67
+  - outline_like: 0.31
+  - ss2022_like: 0.27
+  - native_aead_like: 0.16
+  - plain_http: 0.00
+  - tls_service: 0.00
+  - socks5_service: 0.00
+
+[证据]
+  - 空连接静默，且 TLS/SOCKS5 未命中
+  - 空连接静默且无明文 banner
+  - 随机探针下未收到响应，表现为静默处理
+  - 连接可达，但常见明文/TLS/SOCKS5 特征均未命中
+  - 静默型行为可保留为 outline/2022 候选，但需人工复核
+
+[排除命中]
+
+[行为指纹]
+  - connect_latency=0.13ms
+  - idle_behavior=silent
+  - tls=handshake_failed
+  - random_entropy=0.00
+  - top3_scores=unknown_encrypted_binary:0.67,outline_like:0.31,ss2022_like:0.27
+
+[详细观测]
+
+  <connect>
+    reachable: True
+    latency_ms: 0.13
+
+  <idle>
+    connected: True
+    connect_latency_ms: 0.03
+    roundtrip_ms: 4005.45
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    has_banner: False
+    banner_like_text: False
+    silent: True
+
+  <http>
+    connected: True
+    connect_latency_ms: 0.15
+    roundtrip_ms: 3104.87
+    sent_len: 99
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_http: False
+
+  <tls>
+    connected: False
+    tls_handshake_success: False
+    error: timeout: _ssl.c:1128: The handshake operation timed out
+
+  <socks5>
+    connected: True
+    connect_latency_ms: 0.18
+    roundtrip_ms: 3104.7
+    sent_len: 3
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_socks5: False
+
+  <random_probe>
+    connected: True
+    connect_latency_ms: 0.17
+    roundtrip_ms: 3105.26
+    sent_len: 32
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    high_entropy_response: False
+    binary_response: False
+
+  <ssh>
+    connected: True
+    connect_latency_ms: 0.15
+    roundtrip_ms: 3505.32
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_ssh: False
+
+  <redis>
+    connected: True
+    connect_latency_ms: 0.24
+    roundtrip_ms: 3104.46
+    sent_len: 14
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_redis: False
+
+  <smtp>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.19, 'roundtrip_ms': 3504.37, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.14, 'roundtrip_ms': 3205.89, 'sent_len': 18, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    looks_like_smtp: False
+
+  <pop3>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.27, 'roundtrip_ms': 3505.15, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.15, 'roundtrip_ms': 3205.11, 'sent_len': 6, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    looks_like_pop3: False
+
+  <imap>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.16, 'roundtrip_ms': 3503.06, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.22, 'roundtrip_ms': 3204.33, 'sent_len': 17, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    looks_like_imap: False
+
+  <mysql>
+    connected: True
+    connect_latency_ms: 0.16
+    roundtrip_ms: 3505.33
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_mysql: False
+
+  <postgresql>
+    connected: True
+    connect_latency_ms: 0.21
+    roundtrip_ms: 3204.86
+    sent_len: 8
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_postgresql: False
+====================================================================================================
+
+######## ROUND 3 ########
+
+====================================================================================================
+目标: 127.0.0.1:8080
+真实类别: plain_http
+轮次: 3
+可达: True
+连接耗时: 0.17 ms
+Top Family: plain_http
+Top Score: 0.95
+需要人工复核: False
+
+[家族评分]
+  - plain_http: 0.95
+  - unknown_encrypted_binary: 0.52
+  - tls_service: 0.00
+  - socks5_service: 0.00
+  - native_aead_like: 0.00
+  - outline_like: 0.00
+  - ss2022_like: 0.00
+
+[证据]
+  - HTTP 探针命中标准 HTTP 响应特征
+  - 空连接静默，且 TLS/SOCKS5 未命中
+  - 空连接静默且无明文 banner
+  - 随机探针下未收到响应，表现为静默处理
+
+[排除命中]
+
+[行为指纹]
+  - connect_latency=0.17ms
+  - idle_behavior=silent
+  - http_probe=positive
+  - tls=handshake_failed
+  - random_entropy=0.00
+  - top3_scores=plain_http:0.95,unknown_encrypted_binary:0.52,tls_service:0.00
+
+[详细观测]
+
+  <connect>
+    reachable: True
+    latency_ms: 0.17
+
+  <idle>
+    connected: True
+    connect_latency_ms: 0.03
+    roundtrip_ms: 4005.06
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    has_banner: False
+    banner_like_text: False
+    silent: True
+
+  <http>
+    connected: True
+    connect_latency_ms: 0.15
+    roundtrip_ms: 100.71
+    sent_len: 99
+    recv_len: 452
+    recv_preview_hex: 485454502f312e3020323030204f4b0d0a5365727665723a2053696d706c65485454502f302e3620507974686f6e2f332e382e31300d0a446174653a20467269
+    recv_preview_ascii: HTTP/1.0 200 OK
+Server: SimpleHTTP/0.6 Python/3.8.10
+Date: Fri
+    recv_entropy: 5.406931622302315
+    recv_error: None
+    text_like: True
+    binary_like: False
+    looks_like_http: True
+
+  <tls>
+    connected: True
+    tls_handshake_success: False
+    ssl_error_type: SSLError
+    ssl_error: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1145)
+
+  <socks5>
+    connected: True
+    connect_latency_ms: 0.06
+    roundtrip_ms: 3103.86
+    sent_len: 3
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_socks5: False
+
+  <random_probe>
+    connected: True
+    connect_latency_ms: 0.19
+    roundtrip_ms: 3103.31
+    sent_len: 32
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    high_entropy_response: False
+    binary_response: False
+
+  <ssh>
+    connected: True
+    connect_latency_ms: 0.37
+    roundtrip_ms: 3505.15
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_ssh: False
+
+  <redis>
+    connected: True
+    connect_latency_ms: 0.16
+    roundtrip_ms: 101.38
+    sent_len: 14
+    recv_len: 493
+    recv_preview_hex: 3c21444f43545950452048544d4c205055424c494320222d2f2f5733432f2f4454442048544d4c20342e30312f2f454e220a202020202020202022687474703a
+    recv_preview_ascii: <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http:
+    recv_entropy: 4.97051097575947
+    recv_error: None
+    text_like: True
+    binary_like: False
+    looks_like_redis: False
+
+  <smtp>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.16, 'roundtrip_ms': 3505.42, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.2, 'roundtrip_ms': 202.01, 'sent_len': 18, 'recv_len': 502, 'recv_preview_hex': '3c21444f43545950452048544d4c205055424c494320222d2f2f5733432f2f4454442048544d4c20342e30312f2f454e220a202020202020202022687474703a', 'recv_preview_ascii': '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"\n        "http:', 'recv_entropy': 4.986548433638686, 'recv_error': None, 'text_like': True, 'binary_like': False, 'looks_like_smtp': False}
+    looks_like_smtp: False
+
+  <pop3>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.2, 'roundtrip_ms': 3506.14, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.25, 'roundtrip_ms': 201.75, 'sent_len': 6, 'recv_len': 495, 'recv_preview_hex': '3c21444f43545950452048544d4c205055424c494320222d2f2f5733432f2f4454442048544d4c20342e30312f2f454e220a202020202020202022687474703a', 'recv_preview_ascii': '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"\n        "http:', 'recv_entropy': 4.975514152822542, 'recv_error': None, 'text_like': True, 'binary_like': False, 'looks_like_pop3': False}
+    looks_like_pop3: False
+
+  <imap>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.2, 'roundtrip_ms': 3505.52, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.31, 'roundtrip_ms': 200.93, 'sent_len': 17, 'recv_len': 502, 'recv_preview_hex': '3c21444f43545950452048544d4c205055424c494320222d2f2f5733432f2f4454442048544d4c20342e30312f2f454e220a202020202020202022687474703a', 'recv_preview_ascii': '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"\n        "http:', 'recv_entropy': 4.981893828617665, 'recv_error': None, 'text_like': True, 'binary_like': False, 'looks_like_imap': False}
+    looks_like_imap: False
+
+  <mysql>
+    connected: True
+    connect_latency_ms: 0.68
+    roundtrip_ms: 3505.48
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_mysql: False
+
+  <postgresql>
+    connected: True
+    connect_latency_ms: 0.17
+    roundtrip_ms: 3204.51
+    sent_len: 8
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_postgresql: False
+====================================================================================================
+====================================================================================================
+目标: 127.0.0.1:8443
+真实类别: tls_service
+轮次: 3
+可达: True
+连接耗时: 0.24 ms
+Top Family: tls_service
+Top Score: 0.85
+需要人工复核: False
+
+[家族评分]
+  - tls_service: 0.85
+  - unknown_encrypted_binary: 0.32
+  - plain_http: 0.00
+  - socks5_service: 0.00
+  - native_aead_like: 0.00
+  - outline_like: 0.00
+  - ss2022_like: 0.00
+
+[证据]
+  - TLS 标准握手成功，版本=TLSv1.3
+  - 空连接静默且无明文 banner
+  - 随机探针下未收到响应，表现为静默处理
+
+[排除命中]
+
+[行为指纹]
+  - connect_latency=0.24ms
+  - idle_behavior=silent
+  - tls=TLSv1.3
+  - random_entropy=0.00
+  - top3_scores=tls_service:0.85,unknown_encrypted_binary:0.32,plain_http:0.00
+
+[详细观测]
+
+  <connect>
+    reachable: True
+    latency_ms: 0.24
+
+  <idle>
+    connected: True
+    connect_latency_ms: 0.05
+    roundtrip_ms: 4004.8
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    has_banner: False
+    banner_like_text: False
+    silent: True
+
+  <http>
+    connected: True
+    connect_latency_ms: 0.22
+    roundtrip_ms: 101.18
+    sent_len: 99
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    looks_like_http: False
+
+  <tls>
+    connected: True
+    tls_handshake_success: True
+    connect_latency_ms: 0.2
+    handshake_latency_ms: 1.83
+    tls_version: TLSv1.3
+    cipher: ('TLS_AES_256_GCM_SHA384', 'TLSv1.3', 256)
+    certificate_present: True
+
+  <socks5>
+    connected: True
+    connect_latency_ms: 0.06
+    roundtrip_ms: 3105.0
+    sent_len: 3
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_socks5: False
+
+  <random_probe>
+    connected: True
+    connect_latency_ms: 0.23
+    roundtrip_ms: 101.27
+    sent_len: 32
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    high_entropy_response: False
+    binary_response: False
+
+  <ssh>
+    connected: True
+    connect_latency_ms: 0.21
+    roundtrip_ms: 3505.3
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_ssh: False
+
+  <redis>
+    connected: True
+    connect_latency_ms: 0.21
+    roundtrip_ms: 100.92
+    sent_len: 14
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    looks_like_redis: False
+
+  <smtp>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.14, 'roundtrip_ms': 3504.97, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.23, 'roundtrip_ms': 201.54, 'sent_len': 18, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': None, 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    looks_like_smtp: False
+
+  <pop3>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.2, 'roundtrip_ms': 3506.32, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.18, 'roundtrip_ms': 201.24, 'sent_len': 6, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': None, 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    looks_like_pop3: False
+
+  <imap>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.14, 'roundtrip_ms': 3505.22, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.28, 'roundtrip_ms': 201.02, 'sent_len': 17, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': None, 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    looks_like_imap: False
+
+  <mysql>
+    connected: True
+    connect_latency_ms: 0.16
+    roundtrip_ms: 3505.4
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_mysql: False
+
+  <postgresql>
+    connected: True
+    connect_latency_ms: 0.15
+    roundtrip_ms: 202.04
+    sent_len: 8
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    looks_like_postgresql: False
+====================================================================================================
+====================================================================================================
+目标: 127.0.0.1:1080
+真实类别: socks5_service
+轮次: 3
+可达: True
+连接耗时: 0.14 ms
+Top Family: socks5_service
+Top Score: 0.95
+需要人工复核: False
+
+[家族评分]
+  - socks5_service: 0.95
+  - unknown_encrypted_binary: 0.32
+  - plain_http: 0.00
+  - tls_service: 0.00
+  - native_aead_like: 0.00
+  - outline_like: 0.00
+  - ss2022_like: 0.00
+
+[证据]
+  - SOCKS5 握手命中标准响应
+  - 空连接静默且无明文 banner
+  - 随机探针下未收到响应，表现为静默处理
+
+[排除命中]
+
+[行为指纹]
+  - connect_latency=0.14ms
+  - idle_behavior=silent
+  - tls=handshake_failed
+  - socks5=positive
+  - random_entropy=0.00
+  - top3_scores=socks5_service:0.95,unknown_encrypted_binary:0.32,plain_http:0.00
+
+[详细观测]
+
+  <connect>
+    reachable: True
+    latency_ms: 0.14
+
+  <idle>
+    connected: True
+    connect_latency_ms: 0.03
+    roundtrip_ms: 4006.52
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    has_banner: False
+    banner_like_text: False
+    silent: True
+
+  <http>
+    connected: True
+    connect_latency_ms: 0.73
+    roundtrip_ms: 101.73
+    sent_len: 99
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    looks_like_http: False
+
+  <tls>
+    connected: True
+    tls_handshake_success: False
+    ssl_error_type: SSLEOFError
+    ssl_error: EOF occurred in violation of protocol (_ssl.c:1145)
+
+  <socks5>
+    connected: True
+    connect_latency_ms: 0.05
+    roundtrip_ms: 101.0
+    sent_len: 3
+    recv_len: 2
+    recv_preview_hex: 05ff
+    recv_preview_ascii: ..
+    recv_entropy: 1.0
+    recv_error: None
+    text_like: False
+    binary_like: True
+    looks_like_socks5: True
+
+  <random_probe>
+    connected: True
+    connect_latency_ms: 0.2
+    roundtrip_ms: 101.17
+    sent_len: 32
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    high_entropy_response: False
+    binary_response: False
+
+  <ssh>
+    connected: True
+    connect_latency_ms: 0.18
+    roundtrip_ms: 3505.0
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_ssh: False
+
+  <redis>
+    connected: True
+    connect_latency_ms: 0.14
+    roundtrip_ms: 100.62
+    sent_len: 14
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    looks_like_redis: False
+
+  <smtp>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.11, 'roundtrip_ms': 3505.73, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.32, 'roundtrip_ms': 201.25, 'sent_len': 18, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': None, 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    looks_like_smtp: False
+
+  <pop3>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.13, 'roundtrip_ms': 3505.47, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.17, 'roundtrip_ms': 201.47, 'sent_len': 6, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': None, 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    looks_like_pop3: False
+
+  <imap>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.26, 'roundtrip_ms': 3505.21, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.23, 'roundtrip_ms': 200.55, 'sent_len': 17, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': None, 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    looks_like_imap: False
+
+  <mysql>
+    connected: True
+    connect_latency_ms: 0.22
+    roundtrip_ms: 3504.66
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_mysql: False
+
+  <postgresql>
+    connected: True
+    connect_latency_ms: 0.17
+    roundtrip_ms: 201.83
+    sent_len: 8
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    looks_like_postgresql: False
+====================================================================================================
+====================================================================================================
+目标: 127.0.0.1:8381
+真实类别: native_aead_like
+轮次: 3
+可达: True
+连接耗时: 0.4 ms
+Top Family: unknown_encrypted_binary
+Top Score: 0.67
+需要人工复核: True
+
+[家族评分]
+  - unknown_encrypted_binary: 0.67
+  - outline_like: 0.31
+  - ss2022_like: 0.27
+  - native_aead_like: 0.16
+  - plain_http: 0.00
+  - tls_service: 0.00
+  - socks5_service: 0.00
+
+[证据]
+  - 空连接静默，且 TLS/SOCKS5 未命中
+  - 空连接静默且无明文 banner
+  - 随机探针下未收到响应，表现为静默处理
+  - 连接可达，但常见明文/TLS/SOCKS5 特征均未命中
+  - 静默型行为可保留为 outline/2022 候选，但需人工复核
+
+[排除命中]
+
+[行为指纹]
+  - connect_latency=0.4ms
+  - idle_behavior=silent
+  - tls=handshake_failed
+  - random_entropy=0.00
+  - top3_scores=unknown_encrypted_binary:0.67,outline_like:0.31,ss2022_like:0.27
+
+[详细观测]
+
+  <connect>
+    reachable: True
+    latency_ms: 0.4
+
+  <idle>
+    connected: True
+    connect_latency_ms: 0.16
+    roundtrip_ms: 4005.95
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    has_banner: False
+    banner_like_text: False
+    silent: True
+
+  <http>
+    connected: True
+    connect_latency_ms: 0.19
+    roundtrip_ms: 3102.71
+    sent_len: 99
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_http: False
+
+  <tls>
+    connected: False
+    tls_handshake_success: False
+    error: timeout: _ssl.c:1128: The handshake operation timed out
+
+  <socks5>
+    connected: True
+    connect_latency_ms: 0.21
+    roundtrip_ms: 3105.63
+    sent_len: 3
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_socks5: False
+
+  <random_probe>
+    connected: True
+    connect_latency_ms: 0.29
+    roundtrip_ms: 3105.24
+    sent_len: 32
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    high_entropy_response: False
+    binary_response: False
+
+  <ssh>
+    connected: True
+    connect_latency_ms: 0.15
+    roundtrip_ms: 3505.13
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_ssh: False
+
+  <redis>
+    connected: True
+    connect_latency_ms: 0.17
+    roundtrip_ms: 3104.57
+    sent_len: 14
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_redis: False
+
+  <smtp>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.51, 'roundtrip_ms': 3505.46, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.36, 'roundtrip_ms': 3205.28, 'sent_len': 18, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    looks_like_smtp: False
+
+  <pop3>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.31, 'roundtrip_ms': 3504.85, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.13, 'roundtrip_ms': 3204.41, 'sent_len': 6, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    looks_like_pop3: False
+
+  <imap>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.1, 'roundtrip_ms': 3504.68, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.21, 'roundtrip_ms': 3206.2, 'sent_len': 17, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    looks_like_imap: False
+
+  <mysql>
+    connected: True
+    connect_latency_ms: 0.67
+    roundtrip_ms: 3506.05
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_mysql: False
+
+  <postgresql>
+    connected: True
+    connect_latency_ms: 0.15
+    roundtrip_ms: 3204.67
+    sent_len: 8
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_postgresql: False
+====================================================================================================
+====================================================================================================
+目标: 127.0.0.1:8389
+真实类别: native_aead_like
+轮次: 3
+可达: True
+连接耗时: 0.14 ms
+Top Family: unknown_encrypted_binary
+Top Score: 0.67
+需要人工复核: True
+
+[家族评分]
+  - unknown_encrypted_binary: 0.67
+  - outline_like: 0.31
+  - ss2022_like: 0.27
+  - native_aead_like: 0.16
+  - plain_http: 0.00
+  - tls_service: 0.00
+  - socks5_service: 0.00
+
+[证据]
+  - 空连接静默，且 TLS/SOCKS5 未命中
+  - 空连接静默且无明文 banner
+  - 随机探针下未收到响应，表现为静默处理
+  - 连接可达，但常见明文/TLS/SOCKS5 特征均未命中
+  - 静默型行为可保留为 outline/2022 候选，但需人工复核
+
+[排除命中]
+
+[行为指纹]
+  - connect_latency=0.14ms
+  - idle_behavior=silent
+  - tls=handshake_failed
+  - random_entropy=0.00
+  - top3_scores=unknown_encrypted_binary:0.67,outline_like:0.31,ss2022_like:0.27
+
+[详细观测]
+
+  <connect>
+    reachable: True
+    latency_ms: 0.14
+
+  <idle>
+    connected: True
+    connect_latency_ms: 0.04
+    roundtrip_ms: 4005.74
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    has_banner: False
+    banner_like_text: False
+    silent: True
+
+  <http>
+    connected: True
+    connect_latency_ms: 0.15
+    roundtrip_ms: 3104.05
+    sent_len: 99
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_http: False
+
+  <tls>
+    connected: False
+    tls_handshake_success: False
+    error: timeout: _ssl.c:1128: The handshake operation timed out
+
+  <socks5>
+    connected: True
+    connect_latency_ms: 0.2
+    roundtrip_ms: 3104.34
+    sent_len: 3
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_socks5: False
+
+  <random_probe>
+    connected: True
+    connect_latency_ms: 0.18
+    roundtrip_ms: 3105.19
+    sent_len: 32
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    high_entropy_response: False
+    binary_response: False
+
+  <ssh>
+    connected: True
+    connect_latency_ms: 0.23
+    roundtrip_ms: 3505.3
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_ssh: False
+
+  <redis>
+    connected: True
+    connect_latency_ms: 0.16
+    roundtrip_ms: 3104.85
+    sent_len: 14
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_redis: False
+
+  <smtp>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.14, 'roundtrip_ms': 3504.88, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.14, 'roundtrip_ms': 3205.3, 'sent_len': 18, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    looks_like_smtp: False
+
+  <pop3>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.15, 'roundtrip_ms': 3504.78, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.11, 'roundtrip_ms': 3204.61, 'sent_len': 6, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    looks_like_pop3: False
+
+  <imap>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.11, 'roundtrip_ms': 3503.58, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.14, 'roundtrip_ms': 3204.44, 'sent_len': 17, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    looks_like_imap: False
+
+  <mysql>
+    connected: True
+    connect_latency_ms: 0.14
+    roundtrip_ms: 3504.64
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_mysql: False
+
+  <postgresql>
+    connected: True
+    connect_latency_ms: 0.11
+    roundtrip_ms: 3204.51
+    sent_len: 8
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_postgresql: False
+====================================================================================================
+====================================================================================================
+目标: 127.0.0.1:8390
+真实类别: outline_like
+轮次: 3
+可达: True
+连接耗时: 0.38 ms
+Top Family: unknown_encrypted_binary
+Top Score: 0.67
+需要人工复核: True
+
+[家族评分]
+  - unknown_encrypted_binary: 0.67
+  - outline_like: 0.31
+  - ss2022_like: 0.27
+  - native_aead_like: 0.16
+  - plain_http: 0.00
+  - tls_service: 0.00
+  - socks5_service: 0.00
+
+[证据]
+  - 空连接静默，且 TLS/SOCKS5 未命中
+  - 空连接静默且无明文 banner
+  - 随机探针下未收到响应，表现为静默处理
+  - 连接可达，但常见明文/TLS/SOCKS5 特征均未命中
+  - 静默型行为可保留为 outline/2022 候选，但需人工复核
+
+[排除命中]
+
+[行为指纹]
+  - connect_latency=0.38ms
+  - idle_behavior=silent
+  - tls=handshake_failed
+  - random_entropy=0.00
+  - top3_scores=unknown_encrypted_binary:0.67,outline_like:0.31,ss2022_like:0.27
+
+[详细观测]
+
+  <connect>
+    reachable: True
+    latency_ms: 0.38
+
+  <idle>
+    connected: True
+    connect_latency_ms: 0.05
+    roundtrip_ms: 4006.17
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    has_banner: False
+    banner_like_text: False
+    silent: True
+
+  <http>
+    connected: True
+    connect_latency_ms: 0.27
+    roundtrip_ms: 3105.57
+    sent_len: 99
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_http: False
+
+  <tls>
+    connected: False
+    tls_handshake_success: False
+    error: timeout: _ssl.c:1128: The handshake operation timed out
+
+  <socks5>
+    connected: True
+    connect_latency_ms: 0.14
+    roundtrip_ms: 3104.01
+    sent_len: 3
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_socks5: False
+
+  <random_probe>
+    connected: True
+    connect_latency_ms: 0.37
+    roundtrip_ms: 3104.99
+    sent_len: 32
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    high_entropy_response: False
+    binary_response: False
+
+  <ssh>
+    connected: True
+    connect_latency_ms: 0.15
+    roundtrip_ms: 3505.21
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_ssh: False
+
+  <redis>
+    connected: True
+    connect_latency_ms: 0.23
+    roundtrip_ms: 3101.51
+    sent_len: 14
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_redis: False
+
+  <smtp>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.15, 'roundtrip_ms': 3505.0, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.15, 'roundtrip_ms': 3205.24, 'sent_len': 18, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    looks_like_smtp: False
+
+  <pop3>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.24, 'roundtrip_ms': 3505.01, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.17, 'roundtrip_ms': 3204.86, 'sent_len': 6, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    looks_like_pop3: False
+
+  <imap>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.21, 'roundtrip_ms': 3505.14, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.17, 'roundtrip_ms': 3201.29, 'sent_len': 17, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    looks_like_imap: False
+
+  <mysql>
+    connected: True
+    connect_latency_ms: 0.74
+    roundtrip_ms: 3505.26
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_mysql: False
+
+  <postgresql>
+    connected: True
+    connect_latency_ms: 0.18
+    roundtrip_ms: 3205.1
+    sent_len: 8
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_postgresql: False
+====================================================================================================
+
+######## ROUND 4 ########
+
+====================================================================================================
+目标: 127.0.0.1:8080
+真实类别: plain_http
+轮次: 4
+可达: True
+连接耗时: 0.64 ms
+Top Family: plain_http
+Top Score: 0.95
+需要人工复核: False
+
+[家族评分]
+  - plain_http: 0.95
+  - unknown_encrypted_binary: 0.52
+  - tls_service: 0.00
+  - socks5_service: 0.00
+  - native_aead_like: 0.00
+  - outline_like: 0.00
+  - ss2022_like: 0.00
+
+[证据]
+  - HTTP 探针命中标准 HTTP 响应特征
+  - 空连接静默，且 TLS/SOCKS5 未命中
+  - 空连接静默且无明文 banner
+  - 随机探针下未收到响应，表现为静默处理
+
+[排除命中]
+
+[行为指纹]
+  - connect_latency=0.64ms
+  - idle_behavior=silent
+  - http_probe=positive
+  - tls=handshake_failed
+  - random_entropy=0.00
+  - top3_scores=plain_http:0.95,unknown_encrypted_binary:0.52,tls_service:0.00
+
+[详细观测]
+
+  <connect>
+    reachable: True
+    latency_ms: 0.64
+
+  <idle>
+    connected: True
+    connect_latency_ms: 0.04
+    roundtrip_ms: 4004.99
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    has_banner: False
+    banner_like_text: False
+    silent: True
+
+  <http>
+    connected: True
+    connect_latency_ms: 0.26
+    roundtrip_ms: 101.11
+    sent_len: 99
+    recv_len: 452
+    recv_preview_hex: 485454502f312e3020323030204f4b0d0a5365727665723a2053696d706c65485454502f302e3620507974686f6e2f332e382e31300d0a446174653a20467269
+    recv_preview_ascii: HTTP/1.0 200 OK
+Server: SimpleHTTP/0.6 Python/3.8.10
+Date: Fri
+    recv_entropy: 5.407373504913421
+    recv_error: None
+    text_like: True
+    binary_like: False
+    looks_like_http: True
+
+  <tls>
+    connected: True
+    tls_handshake_success: False
+    ssl_error_type: SSLError
+    ssl_error: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1145)
+
+  <socks5>
+    connected: True
+    connect_latency_ms: 0.08
+    roundtrip_ms: 3104.48
+    sent_len: 3
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_socks5: False
+
+  <random_probe>
+    connected: True
+    connect_latency_ms: 0.18
+    roundtrip_ms: 3106.35
+    sent_len: 32
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    high_entropy_response: False
+    binary_response: False
+
+  <ssh>
+    connected: True
+    connect_latency_ms: 0.31
+    roundtrip_ms: 3504.76
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_ssh: False
+
+  <redis>
+    connected: True
+    connect_latency_ms: 0.17
+    roundtrip_ms: 101.53
+    sent_len: 14
+    recv_len: 493
+    recv_preview_hex: 3c21444f43545950452048544d4c205055424c494320222d2f2f5733432f2f4454442048544d4c20342e30312f2f454e220a202020202020202022687474703a
+    recv_preview_ascii: <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http:
+    recv_entropy: 4.97051097575947
+    recv_error: None
+    text_like: True
+    binary_like: False
+    looks_like_redis: False
+
+  <smtp>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.27, 'roundtrip_ms': 3504.53, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.29, 'roundtrip_ms': 201.36, 'sent_len': 18, 'recv_len': 502, 'recv_preview_hex': '3c21444f43545950452048544d4c205055424c494320222d2f2f5733432f2f4454442048544d4c20342e30312f2f454e220a202020202020202022687474703a', 'recv_preview_ascii': '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"\n        "http:', 'recv_entropy': 4.986548433638686, 'recv_error': None, 'text_like': True, 'binary_like': False, 'looks_like_smtp': False}
+    looks_like_smtp: False
+
+  <pop3>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.14, 'roundtrip_ms': 3502.16, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.19, 'roundtrip_ms': 201.23, 'sent_len': 6, 'recv_len': 495, 'recv_preview_hex': '3c21444f43545950452048544d4c205055424c494320222d2f2f5733432f2f4454442048544d4c20342e30312f2f454e220a202020202020202022687474703a', 'recv_preview_ascii': '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"\n        "http:', 'recv_entropy': 4.975514152822542, 'recv_error': None, 'text_like': True, 'binary_like': False, 'looks_like_pop3': False}
+    looks_like_pop3: False
+
+  <imap>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.14, 'roundtrip_ms': 3505.93, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.16, 'roundtrip_ms': 200.89, 'sent_len': 17, 'recv_len': 502, 'recv_preview_hex': '3c21444f43545950452048544d4c205055424c494320222d2f2f5733432f2f4454442048544d4c20342e30312f2f454e220a202020202020202022687474703a', 'recv_preview_ascii': '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"\n        "http:', 'recv_entropy': 4.981893828617665, 'recv_error': None, 'text_like': True, 'binary_like': False, 'looks_like_imap': False}
+    looks_like_imap: False
+
+  <mysql>
+    connected: True
+    connect_latency_ms: 0.19
+    roundtrip_ms: 3505.43
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_mysql: False
+
+  <postgresql>
+    connected: True
+    connect_latency_ms: 0.21
+    roundtrip_ms: 3204.64
+    sent_len: 8
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_postgresql: False
+====================================================================================================
+====================================================================================================
+目标: 127.0.0.1:8443
+真实类别: tls_service
+轮次: 4
+可达: True
+连接耗时: 0.14 ms
+Top Family: tls_service
+Top Score: 0.85
+需要人工复核: False
+
+[家族评分]
+  - tls_service: 0.85
+  - unknown_encrypted_binary: 0.32
+  - plain_http: 0.00
+  - socks5_service: 0.00
+  - native_aead_like: 0.00
+  - outline_like: 0.00
+  - ss2022_like: 0.00
+
+[证据]
+  - TLS 标准握手成功，版本=TLSv1.3
+  - 空连接静默且无明文 banner
+  - 随机探针下未收到响应，表现为静默处理
+
+[排除命中]
+
+[行为指纹]
+  - connect_latency=0.14ms
+  - idle_behavior=silent
+  - tls=TLSv1.3
+  - random_entropy=0.00
+  - top3_scores=tls_service:0.85,unknown_encrypted_binary:0.32,plain_http:0.00
+
+[详细观测]
+
+  <connect>
+    reachable: True
+    latency_ms: 0.14
+
+  <idle>
+    connected: True
+    connect_latency_ms: 0.04
+    roundtrip_ms: 4005.57
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    has_banner: False
+    banner_like_text: False
+    silent: True
+
+  <http>
+    connected: True
+    connect_latency_ms: 0.23
+    roundtrip_ms: 101.31
+    sent_len: 99
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    looks_like_http: False
+
+  <tls>
+    connected: True
+    tls_handshake_success: True
+    connect_latency_ms: 0.15
+    handshake_latency_ms: 1.8
+    tls_version: TLSv1.3
+    cipher: ('TLS_AES_256_GCM_SHA384', 'TLSv1.3', 256)
+    certificate_present: True
+
+  <socks5>
+    connected: True
+    connect_latency_ms: 0.04
+    roundtrip_ms: 3104.76
+    sent_len: 3
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_socks5: False
+
+  <random_probe>
+    connected: True
+    connect_latency_ms: 0.16
+    roundtrip_ms: 100.96
+    sent_len: 32
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    high_entropy_response: False
+    binary_response: False
+
+  <ssh>
+    connected: True
+    connect_latency_ms: 0.14
+    roundtrip_ms: 3503.9
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_ssh: False
+
+  <redis>
+    connected: True
+    connect_latency_ms: 0.16
+    roundtrip_ms: 101.37
+    sent_len: 14
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    looks_like_redis: False
+
+  <smtp>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.2, 'roundtrip_ms': 3505.36, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.14, 'roundtrip_ms': 200.41, 'sent_len': 18, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': None, 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    looks_like_smtp: False
+
+  <pop3>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.14, 'roundtrip_ms': 3505.47, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.23, 'roundtrip_ms': 201.57, 'sent_len': 6, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': None, 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    looks_like_pop3: False
+
+  <imap>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.15, 'roundtrip_ms': 3505.94, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.2, 'roundtrip_ms': 200.81, 'sent_len': 17, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': None, 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    looks_like_imap: False
+
+  <mysql>
+    connected: True
+    connect_latency_ms: 0.14
+    roundtrip_ms: 3503.78
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_mysql: False
+
+  <postgresql>
+    connected: True
+    connect_latency_ms: 0.13
+    roundtrip_ms: 200.73
+    sent_len: 8
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    looks_like_postgresql: False
+====================================================================================================
+====================================================================================================
+目标: 127.0.0.1:1080
+真实类别: socks5_service
+轮次: 4
+可达: True
+连接耗时: 0.13 ms
+Top Family: socks5_service
+Top Score: 0.95
+需要人工复核: False
+
+[家族评分]
+  - socks5_service: 0.95
+  - unknown_encrypted_binary: 0.32
+  - plain_http: 0.00
+  - tls_service: 0.00
+  - native_aead_like: 0.00
+  - outline_like: 0.00
+  - ss2022_like: 0.00
+
+[证据]
+  - SOCKS5 握手命中标准响应
+  - 空连接静默且无明文 banner
+  - 随机探针下未收到响应，表现为静默处理
+
+[排除命中]
+
+[行为指纹]
+  - connect_latency=0.13ms
+  - idle_behavior=silent
+  - tls=handshake_failed
+  - socks5=positive
+  - random_entropy=0.00
+  - top3_scores=socks5_service:0.95,unknown_encrypted_binary:0.32,plain_http:0.00
+
+[详细观测]
+
+  <connect>
+    reachable: True
+    latency_ms: 0.13
+
+  <idle>
+    connected: True
+    connect_latency_ms: 0.04
+    roundtrip_ms: 4005.35
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    has_banner: False
+    banner_like_text: False
+    silent: True
+
+  <http>
+    connected: True
+    connect_latency_ms: 0.27
+    roundtrip_ms: 100.9
+    sent_len: 99
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    looks_like_http: False
+
+  <tls>
+    connected: True
+    tls_handshake_success: False
+    ssl_error_type: SSLEOFError
+    ssl_error: EOF occurred in violation of protocol (_ssl.c:1145)
+
+  <socks5>
+    connected: True
+    connect_latency_ms: 0.04
+    roundtrip_ms: 101.44
+    sent_len: 3
+    recv_len: 2
+    recv_preview_hex: 05ff
+    recv_preview_ascii: ..
+    recv_entropy: 1.0
+    recv_error: None
+    text_like: False
+    binary_like: True
+    looks_like_socks5: True
+
+  <random_probe>
+    connected: True
+    connect_latency_ms: 0.2
+    roundtrip_ms: 101.26
+    sent_len: 32
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    high_entropy_response: False
+    binary_response: False
+
+  <ssh>
+    connected: True
+    connect_latency_ms: 0.22
+    roundtrip_ms: 3505.21
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_ssh: False
+
+  <redis>
+    connected: True
+    connect_latency_ms: 0.27
+    roundtrip_ms: 100.67
+    sent_len: 14
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    looks_like_redis: False
+
+  <smtp>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.24, 'roundtrip_ms': 3505.42, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.15, 'roundtrip_ms': 200.99, 'sent_len': 18, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': None, 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    looks_like_smtp: False
+
+  <pop3>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.17, 'roundtrip_ms': 3504.84, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.25, 'roundtrip_ms': 201.09, 'sent_len': 6, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': None, 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    looks_like_pop3: False
+
+  <imap>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.11, 'roundtrip_ms': 3505.34, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.18, 'roundtrip_ms': 201.24, 'sent_len': 17, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': None, 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    looks_like_imap: False
+
+  <mysql>
+    connected: True
+    connect_latency_ms: 0.2
+    roundtrip_ms: 3502.69
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_mysql: False
+
+  <postgresql>
+    connected: True
+    connect_latency_ms: 0.13
+    roundtrip_ms: 200.97
+    sent_len: 8
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    looks_like_postgresql: False
+====================================================================================================
+====================================================================================================
+目标: 127.0.0.1:8381
+真实类别: native_aead_like
+轮次: 4
+可达: True
+连接耗时: 0.12 ms
+Top Family: unknown_encrypted_binary
+Top Score: 0.67
+需要人工复核: True
+
+[家族评分]
+  - unknown_encrypted_binary: 0.67
+  - outline_like: 0.31
+  - ss2022_like: 0.27
+  - native_aead_like: 0.16
+  - plain_http: 0.00
+  - tls_service: 0.00
+  - socks5_service: 0.00
+
+[证据]
+  - 空连接静默，且 TLS/SOCKS5 未命中
+  - 空连接静默且无明文 banner
+  - 随机探针下未收到响应，表现为静默处理
+  - 连接可达，但常见明文/TLS/SOCKS5 特征均未命中
+  - 静默型行为可保留为 outline/2022 候选，但需人工复核
+
+[排除命中]
+
+[行为指纹]
+  - connect_latency=0.12ms
+  - idle_behavior=silent
+  - tls=handshake_failed
+  - random_entropy=0.00
+  - top3_scores=unknown_encrypted_binary:0.67,outline_like:0.31,ss2022_like:0.27
+
+[详细观测]
+
+  <connect>
+    reachable: True
+    latency_ms: 0.12
+
+  <idle>
+    connected: True
+    connect_latency_ms: 0.03
+    roundtrip_ms: 4003.8
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    has_banner: False
+    banner_like_text: False
+    silent: True
+
+  <http>
+    connected: True
+    connect_latency_ms: 0.23
+    roundtrip_ms: 3104.43
+    sent_len: 99
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_http: False
+
+  <tls>
+    connected: False
+    tls_handshake_success: False
+    error: timeout: _ssl.c:1128: The handshake operation timed out
+
+  <socks5>
+    connected: True
+    connect_latency_ms: 0.18
+    roundtrip_ms: 3103.04
+    sent_len: 3
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_socks5: False
+
+  <random_probe>
+    connected: True
+    connect_latency_ms: 0.15
+    roundtrip_ms: 3103.12
+    sent_len: 32
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    high_entropy_response: False
+    binary_response: False
+
+  <ssh>
+    connected: True
+    connect_latency_ms: 0.16
+    roundtrip_ms: 3504.51
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_ssh: False
+
+  <redis>
+    connected: True
+    connect_latency_ms: 0.18
+    roundtrip_ms: 3104.67
+    sent_len: 14
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_redis: False
+
+  <smtp>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.25, 'roundtrip_ms': 3504.73, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.21, 'roundtrip_ms': 3206.32, 'sent_len': 18, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    looks_like_smtp: False
+
+  <pop3>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.25, 'roundtrip_ms': 3504.97, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.49, 'roundtrip_ms': 3204.85, 'sent_len': 6, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    looks_like_pop3: False
+
+  <imap>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.39, 'roundtrip_ms': 3504.79, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.24, 'roundtrip_ms': 3203.66, 'sent_len': 17, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    looks_like_imap: False
+
+  <mysql>
+    connected: True
+    connect_latency_ms: 0.18
+    roundtrip_ms: 3503.06
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_mysql: False
+
+  <postgresql>
+    connected: True
+    connect_latency_ms: 0.14
+    roundtrip_ms: 3204.53
+    sent_len: 8
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_postgresql: False
+====================================================================================================
+====================================================================================================
+目标: 127.0.0.1:8389
+真实类别: native_aead_like
+轮次: 4
+可达: True
+连接耗时: 0.15 ms
+Top Family: unknown_encrypted_binary
+Top Score: 0.67
+需要人工复核: True
+
+[家族评分]
+  - unknown_encrypted_binary: 0.67
+  - outline_like: 0.31
+  - ss2022_like: 0.27
+  - native_aead_like: 0.16
+  - plain_http: 0.00
+  - tls_service: 0.00
+  - socks5_service: 0.00
+
+[证据]
+  - 空连接静默，且 TLS/SOCKS5 未命中
+  - 空连接静默且无明文 banner
+  - 随机探针下未收到响应，表现为静默处理
+  - 连接可达，但常见明文/TLS/SOCKS5 特征均未命中
+  - 静默型行为可保留为 outline/2022 候选，但需人工复核
+
+[排除命中]
+
+[行为指纹]
+  - connect_latency=0.15ms
+  - idle_behavior=silent
+  - tls=handshake_failed
+  - random_entropy=0.00
+  - top3_scores=unknown_encrypted_binary:0.67,outline_like:0.31,ss2022_like:0.27
+
+[详细观测]
+
+  <connect>
+    reachable: True
+    latency_ms: 0.15
+
+  <idle>
+    connected: True
+    connect_latency_ms: 0.03
+    roundtrip_ms: 4005.46
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    has_banner: False
+    banner_like_text: False
+    silent: True
+
+  <http>
+    connected: True
+    connect_latency_ms: 0.19
+    roundtrip_ms: 3104.34
+    sent_len: 99
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_http: False
+
+  <tls>
+    connected: False
+    tls_handshake_success: False
+    error: timeout: _ssl.c:1128: The handshake operation timed out
+
+  <socks5>
+    connected: True
+    connect_latency_ms: 0.18
+    roundtrip_ms: 3105.14
+    sent_len: 3
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_socks5: False
+
+  <random_probe>
+    connected: True
+    connect_latency_ms: 0.41
+    roundtrip_ms: 3104.4
+    sent_len: 32
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    high_entropy_response: False
+    binary_response: False
+
+  <ssh>
+    connected: True
+    connect_latency_ms: 0.54
+    roundtrip_ms: 3505.37
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_ssh: False
+
+  <redis>
+    connected: True
+    connect_latency_ms: 0.33
+    roundtrip_ms: 3105.81
+    sent_len: 14
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_redis: False
+
+  <smtp>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.76, 'roundtrip_ms': 3506.92, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.19, 'roundtrip_ms': 3204.42, 'sent_len': 18, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    looks_like_smtp: False
+
+  <pop3>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.18, 'roundtrip_ms': 3501.83, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.25, 'roundtrip_ms': 3204.72, 'sent_len': 6, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    looks_like_pop3: False
+
+  <imap>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.22, 'roundtrip_ms': 3504.83, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.17, 'roundtrip_ms': 3205.24, 'sent_len': 17, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    looks_like_imap: False
+
+  <mysql>
+    connected: True
+    connect_latency_ms: 0.14
+    roundtrip_ms: 3505.25
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_mysql: False
+
+  <postgresql>
+    connected: True
+    connect_latency_ms: 0.41
+    roundtrip_ms: 3205.15
+    sent_len: 8
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_postgresql: False
+====================================================================================================
+====================================================================================================
+目标: 127.0.0.1:8390
+真实类别: outline_like
+轮次: 4
+可达: True
+连接耗时: 0.14 ms
+Top Family: unknown_encrypted_binary
+Top Score: 0.67
+需要人工复核: True
+
+[家族评分]
+  - unknown_encrypted_binary: 0.67
+  - outline_like: 0.31
+  - ss2022_like: 0.27
+  - native_aead_like: 0.16
+  - plain_http: 0.00
+  - tls_service: 0.00
+  - socks5_service: 0.00
+
+[证据]
+  - 空连接静默，且 TLS/SOCKS5 未命中
+  - 空连接静默且无明文 banner
+  - 随机探针下未收到响应，表现为静默处理
+  - 连接可达，但常见明文/TLS/SOCKS5 特征均未命中
+  - 静默型行为可保留为 outline/2022 候选，但需人工复核
+
+[排除命中]
+
+[行为指纹]
+  - connect_latency=0.14ms
+  - idle_behavior=silent
+  - tls=handshake_failed
+  - random_entropy=0.00
+  - top3_scores=unknown_encrypted_binary:0.67,outline_like:0.31,ss2022_like:0.27
+
+[详细观测]
+
+  <connect>
+    reachable: True
+    latency_ms: 0.14
+
+  <idle>
+    connected: True
+    connect_latency_ms: 0.04
+    roundtrip_ms: 4004.64
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    has_banner: False
+    banner_like_text: False
+    silent: True
+
+  <http>
+    connected: True
+    connect_latency_ms: 0.22
+    roundtrip_ms: 3105.06
+    sent_len: 99
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_http: False
+
+  <tls>
+    connected: False
+    tls_handshake_success: False
+    error: timeout: _ssl.c:1128: The handshake operation timed out
+
+  <socks5>
+    connected: True
+    connect_latency_ms: 0.15
+    roundtrip_ms: 3104.7
+    sent_len: 3
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_socks5: False
+
+  <random_probe>
+    connected: True
+    connect_latency_ms: 0.23
+    roundtrip_ms: 3104.54
+    sent_len: 32
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    high_entropy_response: False
+    binary_response: False
+
+  <ssh>
+    connected: True
+    connect_latency_ms: 0.36
+    roundtrip_ms: 3506.13
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_ssh: False
+
+  <redis>
+    connected: True
+    connect_latency_ms: 0.18
+    roundtrip_ms: 3104.5
+    sent_len: 14
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_redis: False
+
+  <smtp>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.15, 'roundtrip_ms': 3505.5, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.21, 'roundtrip_ms': 3205.41, 'sent_len': 18, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    looks_like_smtp: False
+
+  <pop3>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.19, 'roundtrip_ms': 3504.75, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.19, 'roundtrip_ms': 3205.72, 'sent_len': 6, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    looks_like_pop3: False
+
+  <imap>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.17, 'roundtrip_ms': 3504.87, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.53, 'roundtrip_ms': 3205.56, 'sent_len': 17, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    looks_like_imap: False
+
+  <mysql>
+    connected: True
+    connect_latency_ms: 0.24
+    roundtrip_ms: 3505.56
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_mysql: False
+
+  <postgresql>
+    connected: True
+    connect_latency_ms: 0.14
+    roundtrip_ms: 3204.95
+    sent_len: 8
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_postgresql: False
+====================================================================================================
+
+######## ROUND 5 ########
+
+====================================================================================================
+目标: 127.0.0.1:8080
+真实类别: plain_http
+轮次: 5
+可达: True
+连接耗时: 0.13 ms
+Top Family: plain_http
+Top Score: 0.95
+需要人工复核: False
+
+[家族评分]
+  - plain_http: 0.95
+  - unknown_encrypted_binary: 0.40
+  - tls_service: 0.00
+  - socks5_service: 0.00
+  - native_aead_like: 0.00
+  - outline_like: 0.00
+  - ss2022_like: 0.00
+
+[证据]
+  - HTTP 探针命中标准 HTTP 响应特征
+  - 空连接静默，且 TLS/SOCKS5 未命中
+  - 空连接静默且无明文 banner
+
+[排除命中]
+
+[行为指纹]
+  - connect_latency=0.13ms
+  - idle_behavior=silent
+  - http_probe=positive
+  - tls=handshake_failed
+  - random_entropy=5.28
+  - top3_scores=plain_http:0.95,unknown_encrypted_binary:0.40,tls_service:0.00
+
+[详细观测]
+
+  <connect>
+    reachable: True
+    latency_ms: 0.13
+
+  <idle>
+    connected: True
+    connect_latency_ms: 0.03
+    roundtrip_ms: 4003.99
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    has_banner: False
+    banner_like_text: False
+    silent: True
+
+  <http>
+    connected: True
+    connect_latency_ms: 0.15
+    roundtrip_ms: 101.0
+    sent_len: 99
+    recv_len: 452
+    recv_preview_hex: 485454502f312e3020323030204f4b0d0a5365727665723a2053696d706c65485454502f302e3620507974686f6e2f332e382e31300d0a446174653a20467269
+    recv_preview_ascii: HTTP/1.0 200 OK
+Server: SimpleHTTP/0.6 Python/3.8.10
+Date: Fri
+    recv_entropy: 5.407187989340176
+    recv_error: None
+    text_like: True
+    binary_like: False
+    looks_like_http: True
+
+  <tls>
+    connected: True
+    tls_handshake_success: False
+    ssl_error_type: SSLError
+    ssl_error: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1145)
+
+  <socks5>
+    connected: True
+    connect_latency_ms: 0.06
+    roundtrip_ms: 3104.01
+    sent_len: 3
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_socks5: False
+
+  <random_probe>
+    connected: True
+    connect_latency_ms: 0.19
+    roundtrip_ms: 100.97
+    sent_len: 32
+    recv_len: 549
+    recv_preview_hex: 3c21444f43545950452048544d4c205055424c494320222d2f2f5733432f2f4454442048544d4c20342e30312f2f454e220a202020202020202022687474703a
+    recv_preview_ascii: <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http:
+    recv_entropy: 5.278718043330711
+    recv_error: None
+    text_like: True
+    binary_like: False
+    high_entropy_response: False
+    binary_response: False
+
+  <ssh>
+    connected: True
+    connect_latency_ms: 0.15
+    roundtrip_ms: 3506.67
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_ssh: False
+
+  <redis>
+    connected: True
+    connect_latency_ms: 0.24
+    roundtrip_ms: 101.68
+    sent_len: 14
+    recv_len: 493
+    recv_preview_hex: 3c21444f43545950452048544d4c205055424c494320222d2f2f5733432f2f4454442048544d4c20342e30312f2f454e220a202020202020202022687474703a
+    recv_preview_ascii: <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http:
+    recv_entropy: 4.97051097575947
+    recv_error: None
+    text_like: True
+    binary_like: False
+    looks_like_redis: False
+
+  <smtp>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.11, 'roundtrip_ms': 3505.28, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.22, 'roundtrip_ms': 201.77, 'sent_len': 18, 'recv_len': 502, 'recv_preview_hex': '3c21444f43545950452048544d4c205055424c494320222d2f2f5733432f2f4454442048544d4c20342e30312f2f454e220a202020202020202022687474703a', 'recv_preview_ascii': '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"\n        "http:', 'recv_entropy': 4.986548433638686, 'recv_error': None, 'text_like': True, 'binary_like': False, 'looks_like_smtp': False}
+    looks_like_smtp: False
+
+  <pop3>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.61, 'roundtrip_ms': 3505.74, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.25, 'roundtrip_ms': 202.98, 'sent_len': 6, 'recv_len': 495, 'recv_preview_hex': '3c21444f43545950452048544d4c205055424c494320222d2f2f5733432f2f4454442048544d4c20342e30312f2f454e220a202020202020202022687474703a', 'recv_preview_ascii': '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"\n        "http:', 'recv_entropy': 4.975514152822542, 'recv_error': None, 'text_like': True, 'binary_like': False, 'looks_like_pop3': False}
+    looks_like_pop3: False
+
+  <imap>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.13, 'roundtrip_ms': 3505.68, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.25, 'roundtrip_ms': 200.92, 'sent_len': 17, 'recv_len': 502, 'recv_preview_hex': '3c21444f43545950452048544d4c205055424c494320222d2f2f5733432f2f4454442048544d4c20342e30312f2f454e220a202020202020202022687474703a', 'recv_preview_ascii': '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"\n        "http:', 'recv_entropy': 4.981893828617665, 'recv_error': None, 'text_like': True, 'binary_like': False, 'looks_like_imap': False}
+    looks_like_imap: False
+
+  <mysql>
+    connected: True
+    connect_latency_ms: 0.12
+    roundtrip_ms: 3506.12
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_mysql: False
+
+  <postgresql>
+    connected: True
+    connect_latency_ms: 0.16
+    roundtrip_ms: 3203.85
+    sent_len: 8
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_postgresql: False
+====================================================================================================
+====================================================================================================
+目标: 127.0.0.1:8443
+真实类别: tls_service
+轮次: 5
+可达: True
+连接耗时: 0.25 ms
+Top Family: tls_service
+Top Score: 0.85
+需要人工复核: False
+
+[家族评分]
+  - tls_service: 0.85
+  - unknown_encrypted_binary: 0.32
+  - plain_http: 0.00
+  - socks5_service: 0.00
+  - native_aead_like: 0.00
+  - outline_like: 0.00
+  - ss2022_like: 0.00
+
+[证据]
+  - TLS 标准握手成功，版本=TLSv1.3
+  - 空连接静默且无明文 banner
+  - 随机探针下未收到响应，表现为静默处理
+
+[排除命中]
+
+[行为指纹]
+  - connect_latency=0.25ms
+  - idle_behavior=silent
+  - tls=TLSv1.3
+  - random_entropy=0.00
+  - top3_scores=tls_service:0.85,unknown_encrypted_binary:0.32,plain_http:0.00
+
+[详细观测]
+
+  <connect>
+    reachable: True
+    latency_ms: 0.25
+
+  <idle>
+    connected: True
+    connect_latency_ms: 0.06
+    roundtrip_ms: 4004.64
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    has_banner: False
+    banner_like_text: False
+    silent: True
+
+  <http>
+    connected: True
+    connect_latency_ms: 0.21
+    roundtrip_ms: 101.16
+    sent_len: 99
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    looks_like_http: False
+
+  <tls>
+    connected: True
+    tls_handshake_success: True
+    connect_latency_ms: 0.13
+    handshake_latency_ms: 1.86
+    tls_version: TLSv1.3
+    cipher: ('TLS_AES_256_GCM_SHA384', 'TLSv1.3', 256)
+    certificate_present: True
+
+  <socks5>
+    connected: True
+    connect_latency_ms: 0.04
+    roundtrip_ms: 3105.48
+    sent_len: 3
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_socks5: False
+
+  <random_probe>
+    connected: True
+    connect_latency_ms: 0.15
+    roundtrip_ms: 100.99
+    sent_len: 32
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    high_entropy_response: False
+    binary_response: False
+
+  <ssh>
+    connected: True
+    connect_latency_ms: 0.12
+    roundtrip_ms: 3504.63
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_ssh: False
+
+  <redis>
+    connected: True
+    connect_latency_ms: 0.22
+    roundtrip_ms: 100.9
+    sent_len: 14
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    looks_like_redis: False
+
+  <smtp>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.15, 'roundtrip_ms': 3505.47, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.15, 'roundtrip_ms': 201.8, 'sent_len': 18, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': None, 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    looks_like_smtp: False
+
+  <pop3>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.18, 'roundtrip_ms': 3504.82, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.14, 'roundtrip_ms': 201.33, 'sent_len': 6, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': None, 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    looks_like_pop3: False
+
+  <imap>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.11, 'roundtrip_ms': 3506.03, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.24, 'roundtrip_ms': 201.16, 'sent_len': 17, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': None, 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    looks_like_imap: False
+
+  <mysql>
+    connected: True
+    connect_latency_ms: 0.16
+    roundtrip_ms: 3506.0
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_mysql: False
+
+  <postgresql>
+    connected: True
+    connect_latency_ms: 0.15
+    roundtrip_ms: 201.05
+    sent_len: 8
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    looks_like_postgresql: False
+====================================================================================================
+====================================================================================================
+目标: 127.0.0.1:1080
+真实类别: socks5_service
+轮次: 5
+可达: True
+连接耗时: 0.13 ms
+Top Family: socks5_service
+Top Score: 0.95
+需要人工复核: False
+
+[家族评分]
+  - socks5_service: 0.95
+  - unknown_encrypted_binary: 0.32
+  - plain_http: 0.00
+  - tls_service: 0.00
+  - native_aead_like: 0.00
+  - outline_like: 0.00
+  - ss2022_like: 0.00
+
+[证据]
+  - SOCKS5 握手命中标准响应
+  - 空连接静默且无明文 banner
+  - 随机探针下未收到响应，表现为静默处理
+
+[排除命中]
+
+[行为指纹]
+  - connect_latency=0.13ms
+  - idle_behavior=silent
+  - tls=handshake_failed
+  - socks5=positive
+  - random_entropy=0.00
+  - top3_scores=socks5_service:0.95,unknown_encrypted_binary:0.32,plain_http:0.00
+
+[详细观测]
+
+  <connect>
+    reachable: True
+    latency_ms: 0.13
+
+  <idle>
+    connected: True
+    connect_latency_ms: 0.04
+    roundtrip_ms: 4005.45
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    has_banner: False
+    banner_like_text: False
+    silent: True
+
+  <http>
+    connected: True
+    connect_latency_ms: 0.15
+    roundtrip_ms: 101.29
+    sent_len: 99
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    looks_like_http: False
+
+  <tls>
+    connected: True
+    tls_handshake_success: False
+    ssl_error_type: SSLEOFError
+    ssl_error: EOF occurred in violation of protocol (_ssl.c:1145)
+
+  <socks5>
+    connected: True
+    connect_latency_ms: 0.07
+    roundtrip_ms: 100.88
+    sent_len: 3
+    recv_len: 2
+    recv_preview_hex: 05ff
+    recv_preview_ascii: ..
+    recv_entropy: 1.0
+    recv_error: None
+    text_like: False
+    binary_like: True
+    looks_like_socks5: True
+
+  <random_probe>
+    connected: True
+    connect_latency_ms: 0.13
+    roundtrip_ms: 100.85
+    sent_len: 32
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    high_entropy_response: False
+    binary_response: False
+
+  <ssh>
+    connected: True
+    connect_latency_ms: 0.12
+    roundtrip_ms: 3504.06
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_ssh: False
+
+  <redis>
+    connected: True
+    connect_latency_ms: 0.13
+    roundtrip_ms: 100.61
+    sent_len: 14
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    looks_like_redis: False
+
+  <smtp>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.11, 'roundtrip_ms': 3504.68, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.99, 'roundtrip_ms': 202.18, 'sent_len': 18, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': None, 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    looks_like_smtp: False
+
+  <pop3>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.46, 'roundtrip_ms': 3506.13, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.24, 'roundtrip_ms': 201.18, 'sent_len': 6, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': None, 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    looks_like_pop3: False
+
+  <imap>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.15, 'roundtrip_ms': 3505.3, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.21, 'roundtrip_ms': 200.79, 'sent_len': 17, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': None, 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    looks_like_imap: False
+
+  <mysql>
+    connected: True
+    connect_latency_ms: 0.13
+    roundtrip_ms: 3505.34
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_mysql: False
+
+  <postgresql>
+    connected: True
+    connect_latency_ms: 0.23
+    roundtrip_ms: 201.16
+    sent_len: 8
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: None
+    text_like: False
+    binary_like: False
+    looks_like_postgresql: False
+====================================================================================================
+====================================================================================================
+目标: 127.0.0.1:8381
+真实类别: native_aead_like
+轮次: 5
+可达: True
+连接耗时: 0.14 ms
+Top Family: unknown_encrypted_binary
+Top Score: 0.67
+需要人工复核: True
+
+[家族评分]
+  - unknown_encrypted_binary: 0.67
+  - outline_like: 0.31
+  - ss2022_like: 0.27
+  - native_aead_like: 0.16
+  - plain_http: 0.00
+  - tls_service: 0.00
+  - socks5_service: 0.00
+
+[证据]
+  - 空连接静默，且 TLS/SOCKS5 未命中
+  - 空连接静默且无明文 banner
+  - 随机探针下未收到响应，表现为静默处理
+  - 连接可达，但常见明文/TLS/SOCKS5 特征均未命中
+  - 静默型行为可保留为 outline/2022 候选，但需人工复核
+
+[排除命中]
+
+[行为指纹]
+  - connect_latency=0.14ms
+  - idle_behavior=silent
+  - tls=handshake_failed
+  - random_entropy=0.00
+  - top3_scores=unknown_encrypted_binary:0.67,outline_like:0.31,ss2022_like:0.27
+
+[详细观测]
+
+  <connect>
+    reachable: True
+    latency_ms: 0.14
+
+  <idle>
+    connected: True
+    connect_latency_ms: 0.04
+    roundtrip_ms: 4006.07
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    has_banner: False
+    banner_like_text: False
+    silent: True
+
+  <http>
+    connected: True
+    connect_latency_ms: 0.24
+    roundtrip_ms: 3105.1
+    sent_len: 99
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_http: False
+
+  <tls>
+    connected: False
+    tls_handshake_success: False
+    error: timeout: _ssl.c:1128: The handshake operation timed out
+
+  <socks5>
+    connected: True
+    connect_latency_ms: 0.15
+    roundtrip_ms: 3103.94
+    sent_len: 3
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_socks5: False
+
+  <random_probe>
+    connected: True
+    connect_latency_ms: 0.17
+    roundtrip_ms: 3105.22
+    sent_len: 32
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    high_entropy_response: False
+    binary_response: False
+
+  <ssh>
+    connected: True
+    connect_latency_ms: 0.2
+    roundtrip_ms: 3504.7
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_ssh: False
+
+  <redis>
+    connected: True
+    connect_latency_ms: 0.26
+    roundtrip_ms: 3105.11
+    sent_len: 14
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_redis: False
+
+  <smtp>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.23, 'roundtrip_ms': 3505.03, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.26, 'roundtrip_ms': 3205.2, 'sent_len': 18, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    looks_like_smtp: False
+
+  <pop3>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.26, 'roundtrip_ms': 3506.09, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.16, 'roundtrip_ms': 3206.36, 'sent_len': 6, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    looks_like_pop3: False
+
+  <imap>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.23, 'roundtrip_ms': 3505.92, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.21, 'roundtrip_ms': 3205.3, 'sent_len': 17, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    looks_like_imap: False
+
+  <mysql>
+    connected: True
+    connect_latency_ms: 0.15
+    roundtrip_ms: 3506.22
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_mysql: False
+
+  <postgresql>
+    connected: True
+    connect_latency_ms: 0.14
+    roundtrip_ms: 3204.93
+    sent_len: 8
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_postgresql: False
+====================================================================================================
+====================================================================================================
+目标: 127.0.0.1:8389
+真实类别: native_aead_like
+轮次: 5
+可达: True
+连接耗时: 0.15 ms
+Top Family: unknown_encrypted_binary
+Top Score: 0.67
+需要人工复核: True
+
+[家族评分]
+  - unknown_encrypted_binary: 0.67
+  - outline_like: 0.31
+  - ss2022_like: 0.27
+  - native_aead_like: 0.16
+  - plain_http: 0.00
+  - tls_service: 0.00
+  - socks5_service: 0.00
+
+[证据]
+  - 空连接静默，且 TLS/SOCKS5 未命中
+  - 空连接静默且无明文 banner
+  - 随机探针下未收到响应，表现为静默处理
+  - 连接可达，但常见明文/TLS/SOCKS5 特征均未命中
+  - 静默型行为可保留为 outline/2022 候选，但需人工复核
+
+[排除命中]
+
+[行为指纹]
+  - connect_latency=0.15ms
+  - idle_behavior=silent
+  - tls=handshake_failed
+  - random_entropy=0.00
+  - top3_scores=unknown_encrypted_binary:0.67,outline_like:0.31,ss2022_like:0.27
+
+[详细观测]
+
+  <connect>
+    reachable: True
+    latency_ms: 0.15
+
+  <idle>
+    connected: True
+    connect_latency_ms: 0.04
+    roundtrip_ms: 4005.1
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    has_banner: False
+    banner_like_text: False
+    silent: True
+
+  <http>
+    connected: True
+    connect_latency_ms: 0.24
+    roundtrip_ms: 3104.81
+    sent_len: 99
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_http: False
+
+  <tls>
+    connected: False
+    tls_handshake_success: False
+    error: timeout: _ssl.c:1128: The handshake operation timed out
+
+  <socks5>
+    connected: True
+    connect_latency_ms: 0.67
+    roundtrip_ms: 3105.24
+    sent_len: 3
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_socks5: False
+
+  <random_probe>
+    connected: True
+    connect_latency_ms: 0.39
+    roundtrip_ms: 3104.41
+    sent_len: 32
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    high_entropy_response: False
+    binary_response: False
+
+  <ssh>
+    connected: True
+    connect_latency_ms: 0.16
+    roundtrip_ms: 3502.23
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_ssh: False
+
+  <redis>
+    connected: True
+    connect_latency_ms: 0.14
+    roundtrip_ms: 3104.59
+    sent_len: 14
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_redis: False
+
+  <smtp>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.21, 'roundtrip_ms': 3505.22, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.17, 'roundtrip_ms': 3204.96, 'sent_len': 18, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    looks_like_smtp: False
+
+  <pop3>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.14, 'roundtrip_ms': 3505.24, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.19, 'roundtrip_ms': 3205.28, 'sent_len': 6, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    looks_like_pop3: False
+
+  <imap>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.13, 'roundtrip_ms': 3505.75, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.19, 'roundtrip_ms': 3205.47, 'sent_len': 17, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    looks_like_imap: False
+
+  <mysql>
+    connected: True
+    connect_latency_ms: 0.93
+    roundtrip_ms: 3506.23
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_mysql: False
+
+  <postgresql>
+    connected: True
+    connect_latency_ms: 0.2
+    roundtrip_ms: 3204.64
+    sent_len: 8
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_postgresql: False
+====================================================================================================
+====================================================================================================
+目标: 127.0.0.1:8390
+真实类别: outline_like
+轮次: 5
+可达: True
+连接耗时: 0.15 ms
+Top Family: unknown_encrypted_binary
+Top Score: 0.67
+需要人工复核: True
+
+[家族评分]
+  - unknown_encrypted_binary: 0.67
+  - outline_like: 0.31
+  - ss2022_like: 0.27
+  - native_aead_like: 0.16
+  - plain_http: 0.00
+  - tls_service: 0.00
+  - socks5_service: 0.00
+
+[证据]
+  - 空连接静默，且 TLS/SOCKS5 未命中
+  - 空连接静默且无明文 banner
+  - 随机探针下未收到响应，表现为静默处理
+  - 连接可达，但常见明文/TLS/SOCKS5 特征均未命中
+  - 静默型行为可保留为 outline/2022 候选，但需人工复核
+
+[排除命中]
+
+[行为指纹]
+  - connect_latency=0.15ms
+  - idle_behavior=silent
+  - tls=handshake_failed
+  - random_entropy=0.00
+  - top3_scores=unknown_encrypted_binary:0.67,outline_like:0.31,ss2022_like:0.27
+
+[详细观测]
+
+  <connect>
+    reachable: True
+    latency_ms: 0.15
+
+  <idle>
+    connected: True
+    connect_latency_ms: 0.03
+    roundtrip_ms: 4005.7
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    has_banner: False
+    banner_like_text: False
+    silent: True
+
+  <http>
+    connected: True
+    connect_latency_ms: 0.24
+    roundtrip_ms: 3105.61
+    sent_len: 99
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_http: False
+
+  <tls>
+    connected: False
+    tls_handshake_success: False
+    error: timeout: _ssl.c:1128: The handshake operation timed out
+
+  <socks5>
+    connected: True
+    connect_latency_ms: 0.4
+    roundtrip_ms: 3105.05
+    sent_len: 3
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_socks5: False
+
+  <random_probe>
+    connected: True
+    connect_latency_ms: 0.24
+    roundtrip_ms: 3105.28
+    sent_len: 32
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    high_entropy_response: False
+    binary_response: False
+
+  <ssh>
+    connected: True
+    connect_latency_ms: 0.16
+    roundtrip_ms: 3504.81
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_ssh: False
+
+  <redis>
+    connected: True
+    connect_latency_ms: 0.23
+    roundtrip_ms: 3105.2
+    sent_len: 14
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_redis: False
+
+  <smtp>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.29, 'roundtrip_ms': 3505.72, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.18, 'roundtrip_ms': 3204.43, 'sent_len': 18, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_smtp': False}
+    looks_like_smtp: False
+
+  <pop3>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.25, 'roundtrip_ms': 3504.86, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.18, 'roundtrip_ms': 3204.46, 'sent_len': 6, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_pop3': False}
+    looks_like_pop3: False
+
+  <imap>
+    banner_probe: {'connected': True, 'connect_latency_ms': 0.15, 'roundtrip_ms': 3505.21, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    active_probe: {'connected': True, 'connect_latency_ms': 0.14, 'roundtrip_ms': 3205.18, 'sent_len': 17, 'recv_len': 0, 'recv_preview_hex': '', 'recv_preview_ascii': '', 'recv_entropy': 0.0, 'recv_error': 'timeout', 'text_like': False, 'binary_like': False, 'looks_like_imap': False}
+    looks_like_imap: False
+
+  <mysql>
+    connected: True
+    connect_latency_ms: 0.23
+    roundtrip_ms: 3505.18
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_mysql: False
+
+  <postgresql>
+    connected: True
+    connect_latency_ms: 0.14
+    roundtrip_ms: 3204.89
+    sent_len: 8
+    recv_len: 0
+    recv_preview_hex: 
+    recv_preview_ascii: 
+    recv_entropy: 0.0
+    recv_error: timeout
+    text_like: False
+    binary_like: False
+    looks_like_postgresql: False
+====================================================================================================
+
+========================================================================================================================
+SUMMARY
+========================================================================================================================
+round    target             real_label             pred_label                 score    manual_review
+1        127.0.0.1:8080     plain_http             plain_http                 0.95     False
+1        127.0.0.1:8443     tls_service            tls_service                0.85     False
+1        127.0.0.1:1080     socks5_service         socks5_service             0.95     False
+1        127.0.0.1:8381     native_aead_like       unknown_encrypted_binary   0.67     True
+1        127.0.0.1:8389     native_aead_like       unknown_encrypted_binary   0.67     True
+1        127.0.0.1:8390     outline_like           unknown_encrypted_binary   0.67     True
+2        127.0.0.1:8080     plain_http             plain_http                 0.95     False
+2        127.0.0.1:8443     tls_service            tls_service                0.85     False
+2        127.0.0.1:1080     socks5_service         socks5_service             0.95     False
+2        127.0.0.1:8381     native_aead_like       unknown_encrypted_binary   0.67     True
+2        127.0.0.1:8389     native_aead_like       unknown_encrypted_binary   0.67     True
+2        127.0.0.1:8390     outline_like           unknown_encrypted_binary   0.67     True
+3        127.0.0.1:8080     plain_http             plain_http                 0.95     False
+3        127.0.0.1:8443     tls_service            tls_service                0.85     False
+3        127.0.0.1:1080     socks5_service         socks5_service             0.95     False
+3        127.0.0.1:8381     native_aead_like       unknown_encrypted_binary   0.67     True
+3        127.0.0.1:8389     native_aead_like       unknown_encrypted_binary   0.67     True
+3        127.0.0.1:8390     outline_like           unknown_encrypted_binary   0.67     True
+4        127.0.0.1:8080     plain_http             plain_http                 0.95     False
+4        127.0.0.1:8443     tls_service            tls_service                0.85     False
+4        127.0.0.1:1080     socks5_service         socks5_service             0.95     False
+4        127.0.0.1:8381     native_aead_like       unknown_encrypted_binary   0.67     True
+4        127.0.0.1:8389     native_aead_like       unknown_encrypted_binary   0.67     True
+4        127.0.0.1:8390     outline_like           unknown_encrypted_binary   0.67     True
+5        127.0.0.1:8080     plain_http             plain_http                 0.95     False
+5        127.0.0.1:8443     tls_service            tls_service                0.85     False
+5        127.0.0.1:1080     socks5_service         socks5_service             0.95     False
+5        127.0.0.1:8381     native_aead_like       unknown_encrypted_binary   0.67     True
+5        127.0.0.1:8389     native_aead_like       unknown_encrypted_binary   0.67     True
+5        127.0.0.1:8390     outline_like           unknown_encrypted_binary   0.67     True

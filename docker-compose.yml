@@ -1,0 +1,45 @@
+version: '3.3'
+
+services:
+  socks5:
+    image: serjs/go-socks5-proxy
+    container_name: lab-socks5
+    environment:
+      - PROXY_USER=testuser
+      - PROXY_PASSWORD=testpass
+    ports:
+      - "1080:1080"
+    restart: unless-stopped
+
+  ss-aead-8388:
+    image: shadowsocks/shadowsocks-libev
+    container_name: lab-ss-aead-8388
+    command: ss-server -c /etc/shadowsocks-libev/config.json
+    volumes:
+      - ./configs/shadowsocks/ss-aead-8388.json:/etc/shadowsocks-libev/config.json:ro
+    ports:
+      - "8381:8388/tcp"
+      - "8381:8388/udp"
+    restart: unless-stopped
+
+  ss-aead-8389:
+    image: shadowsocks/shadowsocks-libev
+    container_name: lab-ss-aead-8389
+    command: ss-server -c /etc/shadowsocks-libev/config.json
+    volumes:
+      - ./configs/shadowsocks/ss-aead-8389.json:/etc/shadowsocks-libev/config.json:ro
+    ports:
+      - "8389:8389/tcp"
+      - "8389:8389/udp"
+    restart: unless-stopped
+
+  ss-outline-like-8390:
+    image: shadowsocks/shadowsocks-libev
+    container_name: lab-ss-outline-like-8390
+    command: ss-server -c /etc/shadowsocks-libev/config.json
+    volumes:
+      - ./configs/shadowsocks/outline-like-8390.json:/etc/shadowsocks-libev/config.json:ro
+    ports:
+      - "8390:8390/tcp"
+      - "8390:8390/udp"
+    restart: unless-stopped
