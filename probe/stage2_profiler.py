@@ -297,6 +297,160 @@ def print_stage2_summary(summaries: List[Dict[str, Any]]) -> None:
         )
 
 
+def summarize_stage2_by_target(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    grouped = defaultdict(list)
+    for row in rows:
+        grouped[row["target"]].append(row)
+
+    summaries: List[Dict[str, Any]] = []
+    for target, items in grouped.items():
+        real_label = items[0].get("real_label", "-")
+        by_probe = defaultdict(list)
+        for item in items:
+            by_probe[item["probe_name"]].append(item)
+
+        random_probe_names = ["random_1_byte", "random_8_bytes", "random_64_bytes", "split_random_32"]
+        random_items = [x for name in random_probe_names for x in by_probe.get(name, [])]
+        shutdown_items = by_probe.get("random_32_then_shutdown_wr", [])
+        connect_items = by_probe.get("connect_only", [])
+
+        timeout_count = sum(1 for x in random_items if x.get("recv_error") == "timeout")
+        peer_closed_count = sum(1 for x in shutdown_items if x.get("recv_error") == "peer_closed")
+        random_rtt = [x.get("roundtrip_ms") for x in random_items if x.get("roundtrip_ms") is not None]
+        split_rtt = [x.get("roundtrip_ms") for x in by_probe.get("split_random_32", []) if x.get("roundtrip_ms") is not None]
+        shutdown_rtt = [x.get("roundtrip_ms") for x in shutdown_items if x.get("roundtrip_ms") is not None]
+        connect_latency = [x.get("connect_latency_ms") for x in connect_items if x.get("connect_latency_ms") is not None]
+
+        summaries.append({
+            "target": target,
+            "real_label": real_label,
+            "rounds": len(connect_items),
+            "random_timeout_ratio": round(timeout_count / len(random_items), 3) if random_items else 0.0,
+            "shutdown_peer_closed_ratio": round(peer_closed_count / len(shutdown_items), 3) if shutdown_items else 0.0,
+            "avg_random_rtt_ms": round(mean(random_rtt), 3) if random_rtt else None,
+            "avg_split_rtt_ms": round(mean(split_rtt), 3) if split_rtt else None,
+            "avg_shutdown_rtt_ms": round(mean(shutdown_rtt), 3) if shutdown_rtt else None,
+            "avg_connect_only_latency_ms": round(mean(connect_latency), 3) if connect_latency else None,
+        })
+
+    summaries.sort(key=lambda x: x["target"])
+    return summaries
+
+
+def infer_stage2_subfamily(summary: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    第二层细分：
+    对 unknown_encrypted_binary 目标做实验室内“候选家族”细分评分。
+    说明：
+    - 只做实验室行为簇细分，不代表协议确认。
+    - 若分值接近，则保持 manual_review。
+    """
+    scores = {
+        "native_aead_like": 0.20,
+        "outline_like": 0.20,
+        "ss2022_like": 0.20,
+    }
+    evidence: List[str] = []
+
+    timeout_ratio = summary.get("random_timeout_ratio", 0.0)
+    peer_closed_ratio = summary.get("shutdown_peer_closed_ratio", 0.0)
+    avg_split_rtt = summary.get("avg_split_rtt_ms")
+    avg_random_rtt = summary.get("avg_random_rtt_ms")
+    avg_shutdown_rtt = summary.get("avg_shutdown_rtt_ms")
+    avg_connect = summary.get("avg_connect_only_latency_ms")
+
+    if timeout_ratio >= 0.95:
+        scores["outline_like"] += 0.12
+        scores["ss2022_like"] += 0.12
+        evidence.append("随机探针超时比例高（>=95%），偏向静默型候选")
+
+    if peer_closed_ratio >= 0.95:
+        scores["native_aead_like"] += 0.14
+        scores["outline_like"] += 0.08
+        evidence.append("半关闭写端后 peer_closed 稳定出现（>=95%）")
+
+    if avg_split_rtt is not None and avg_random_rtt is not None:
+        split_gap = avg_split_rtt - avg_random_rtt
+        if split_gap >= 180:
+            scores["native_aead_like"] += 0.06
+            scores["outline_like"] += 0.06
+            evidence.append("分片探针相对随机探针存在显著额外时延")
+
+    if avg_split_rtt is not None:
+        # 基于当前实验室样本库的经验分界，建议后续按真实样本动态校准
+        if avg_split_rtt <= 3304.8:
+            scores["outline_like"] += 0.25
+            evidence.append("split_random_32 平均 RTT 偏低，倾向 outline_like")
+        else:
+            scores["native_aead_like"] += 0.20
+            evidence.append("split_random_32 平均 RTT 偏高，倾向 native_aead_like")
+
+    if avg_connect is not None:
+        if avg_connect <= 0.35:
+            scores["outline_like"] += 0.12
+            evidence.append("connect_only 平均连接时延较低")
+        elif avg_connect >= 0.50:
+            scores["native_aead_like"] += 0.12
+            evidence.append("connect_only 平均连接时延较高")
+
+    if avg_shutdown_rtt is not None:
+        if avg_shutdown_rtt <= 100.95:
+            scores["outline_like"] += 0.08
+            evidence.append("shutdown 后关闭时延偏低")
+        elif avg_shutdown_rtt >= 101.00:
+            scores["native_aead_like"] += 0.08
+            evidence.append("shutdown 后关闭时延偏高")
+
+    total = sum(max(v, 0.0) for v in scores.values())
+    if total <= 0:
+        normalized = {k: 0.0 for k in scores}
+    else:
+        normalized = {k: round(max(v, 0.0) / total, 4) for k, v in scores.items()}
+
+    ranked = sorted(normalized.items(), key=lambda kv: kv[1], reverse=True)
+    top_family, top_score = ranked[0]
+    second_score = ranked[1][1] if len(ranked) > 1 else 0.0
+    margin = round(top_score - second_score, 4)
+
+    needs_manual_review = (top_score < 0.50) or (margin < 0.10)
+    return {
+        "subfamily_scores": normalized,
+        "stage2_top_family": top_family,
+        "stage2_top_score": top_score,
+        "stage2_margin": margin,
+        "stage2_needs_manual_review": needs_manual_review,
+        "stage2_evidence": evidence,
+    }
+
+
+def print_stage2_subdivision(rows: List[Dict[str, Any]]) -> None:
+    summaries = summarize_stage2_by_target(rows)
+    print("=" * 170)
+    print("STAGE2 SUBDIVISION (for unknown_encrypted_binary candidates)")
+    print("=" * 170)
+    print(
+        f"{'target':<18} {'real_label':<18} {'pred_subfamily':<22} {'score':<8} "
+        f"{'margin':<8} {'manual_review':<14} {'native':<8} {'outline':<8} {'ss2022':<8}"
+    )
+    for summary in summaries:
+        infer = infer_stage2_subfamily(summary)
+        scores = infer["subfamily_scores"]
+        print(
+            f"{summary['target']:<18} "
+            f"{summary['real_label']:<18} "
+            f"{infer['stage2_top_family']:<22} "
+            f"{infer['stage2_top_score']:<8} "
+            f"{infer['stage2_margin']:<8} "
+            f"{str(infer['stage2_needs_manual_review']):<14} "
+            f"{scores.get('native_aead_like', 0.0):<8} "
+            f"{scores.get('outline_like', 0.0):<8} "
+            f"{scores.get('ss2022_like', 0.0):<8}"
+        )
+
+        if infer["stage2_evidence"]:
+            print(f"  evidence: {'; '.join(infer['stage2_evidence'])}")
+
+
 def print_one_result_brief(row: Dict[str, Any]) -> None:
     print("-" * 120)
     print(
@@ -371,6 +525,8 @@ def main():
     summaries = summarize_stage2(all_rows)
     print()
     print_stage2_summary(summaries)
+    print()
+    print_stage2_subdivision(all_rows)
 
 
 if __name__ == "__main__":
